@@ -1,0 +1,12 @@
+mat-accordian{
+    padding:20px
+}
+.container{
+    padding-bottom: 25px;
+}
+h5{
+    padding: 10px;
+}
+mat-panel-title, mat-panel-description{
+    padding: 10px;
+}

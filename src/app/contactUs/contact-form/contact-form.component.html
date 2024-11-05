@@ -1,0 +1,30 @@
+<div class="container form-container">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+      <h5 style="text-align: center;"> Leave Us a Message</h5>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput  name="name" #name="ngModel" ngModel required>
+      </mat-form-field>
+      <mat-error [hidden]="name.valid || (name.pristine && !contactForm.submitted)">
+        <small>Name is required .</small>
+      </mat-error>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email </mat-label>
+        <input matInput name="email" #email="ngModel" ngModel required  email>
+      </mat-form-field>
+      <mat-error [hidden]="email.valid || (email.pristine && !contactForm.submitted)">
+        <small>Valid Email is required .</small>
+      </mat-error>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Your Message</mat-label>
+        <textarea matInput  name="message" #message="ngModel" ngModel required></textarea>
+      </mat-form-field>
+      <mat-error [hidden]="message.valid || (message.pristine && !contactForm.submitted)">
+        <small>Message is required .</small>
+      </mat-error>
+      <button mat-raised-button   color="primary" type="submit" [disabled]="contactForm.invalid">Send</button>
+    </form>
+  </div>
+  

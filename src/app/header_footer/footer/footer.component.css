@@ -1,0 +1,39 @@
+footer {
+    padding: 20px;
+    background-color:#1A906B;
+    margin-top:50px;
+    
+}
+
+footer h6 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+footer p, footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#subscribe-form button {
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.copyright {
+    background-color:#1A906B;
+}
+
+.icon a {
+    margin: 0 10px;
+    color: white;
+}
+i{
+    font-size: larger;
+}
+svg{
+    border: none;
+}

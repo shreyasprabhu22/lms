@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row about-us">
+        <div class="col-md-6 about-us-text">
+            <h1>About Us</h1>
+            <h2>EduVista</h2>
+            <p>Providing The Best Opportunities To The Students Around The Globe.</p>
+            <p>At EduVista, we are dedicated to transforming the educational landscape through innovative technology and engaging learning experiences. Our Learning Management System is designed to empower educators and learners alike, providing a robust platform for collaboration, knowledge sharing, and skill development. With a user-friendly interface and a wide array of interactive tools, we strive to create an inclusive environment that supports diverse learning styles. Our mission is to make education accessible and enjoyable for everyone, fostering a lifelong love of learning in a dynamic digital space.</p> 
+        </div>
+        <div class="col-md-6 about-us-image"> <img src="../../../assets/about.jpeg" class="img-fluid mb-2" alt="Office Space"> </div>
+    </div>
+</div>
+
+<div class="container category-class">
+  <h5>Choose Your Favourite course from our Top category </h5>
+  <div class="row">
+    <div class="col-lg-3 col-md-6" *ngFor="let category of categories; let i = index">
+      <app-category-conatiner 
+        [iconClass]="category.iconClass"
+        [title]="category.title"
+        [description]="category.description"
+        [colorClass]="getColorClass(i)">
+      </app-category-conatiner>
+    </div>
+  </div>
+</div>
+
+
+
+<app-accordian></app-accordian>

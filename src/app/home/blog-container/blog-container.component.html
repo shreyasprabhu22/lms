@@ -1,0 +1,24 @@
+<div class="container blog-card d-flex">
+    <div class="image-container me-3">
+        <img [src]="blogdata.image" class="img-fluid" alt="Blog Image">
+    </div>
+    <div class="content">
+        <div class="date">
+            {{ blogdata.date }}
+        </div>
+        <div class="heading">
+            {{ blogdata.title }}
+        </div>
+        <div class="description">
+            {{ blogdata.description }}
+        </div>
+        <div class="tags">
+            <div class="category">
+                {{ blogdata.category }}
+            </div>
+            <div class="type {{ blogdata.type }}">
+                {{ blogdata.type }}
+            </div>
+        </div>
+    </div>
+</div>

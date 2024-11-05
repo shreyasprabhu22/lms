@@ -1,0 +1,65 @@
+
+.carousel {
+    margin-top: 100px ;
+    max-width: 1200px;
+    
+}
+
+.card {
+    border: none;
+    box-shadow: 10px 10px 10px rgba(7, 6, 6, 0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+}
+
+.card-body {
+    text-align: left;
+}
+
+.card-text {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card-img-top {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        text-align: center;
+    }
+
+    .card {
+        max-width: 90%; 
+    }
+
+    .card-img-top {
+        width: 60px;
+        height: 60px;
+    }
+}
+

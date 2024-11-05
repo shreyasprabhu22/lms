@@ -1,0 +1,35 @@
+<div id="page">
+    <div id="login-container">
+        <div>
+            <img src="../../../assets/login.jpeg" alt="login">
+        </div>
+        <div id="login-form">
+            <mat-card>
+                <h5 style="text-align: center"><strong>Login</strong></h5>
+                <p style="text-align: center;">Please enter your credentials to access your account.</p>
+                <mat-card-content>
+                    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Username</mat-label>
+                            <input matInput formControlName="username" required >
+                            <mat-error [hidden]="userForm.get('username')?.valid || (userForm.get('username')?.pristine && !submitted)">
+                                <small>Username is required.</small>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput  type="password" formControlName="password" required>
+                            <mat-error [hidden]="userForm.get('password')?.valid || (userForm.get('password')?.pristine && !submitted)">
+                                <small>Valid Password is required.</small>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <small style="text-align: right;" id="forgot">Forgot password?</small><br><br>
+                        <button type="submit" [disabled]="userForm.invalid">Submit</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

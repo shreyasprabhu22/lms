@@ -1,0 +1,19 @@
+<div class="card">
+    <img [src]="course.Image" alt="{{ course.CourseName }}">
+    <div class="card-body">
+        <p class="card-text Category"><small>{{ course.Category }}</small></p>
+        <p class="card-title">{{ course.CourseName }}</p>
+        <p class="card-text"><small>{{ course.Description }}</small></p>
+
+        <div class="rating">
+            <span *ngFor="let star of [].constructor(5); let i = index" 
+                  class="fa fa-star" 
+                  [ngClass]="{'checked': i < course.Rating}"></span>
+        </div>
+        
+        <div class="instructor-info d-flex align-items-center">
+            <img [src]="course.IImage" alt="{{ course.InstructorName }}" class="instructor-img">
+            <p class="instructor-name">{{ course.Instructor }}</p>
+        </div>
+    </div>
+</div>

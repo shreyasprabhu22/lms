@@ -1,0 +1,21 @@
+
+.nav-container{
+    margin-left: 80px;
+}
+button{
+    border: none;
+    border-radius: 10px;
+    padding-left : 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    margin-right: 10px;
+    background-color: #20B486;
+}
+
+.nav-link.active{
+    color:#20B486 ;
+    border: 1px black;
+}
+

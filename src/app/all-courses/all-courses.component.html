@@ -1,0 +1,49 @@
+<app-nav></app-nav>
+<div id="filter" class="container mb-4">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 mb-3">
+            <select [(ngModel)]="selectedInstructor" class="form-control">
+                <option value="">All Instructors</option>
+                <option *ngFor="let instructor of getInstructors()" [value]="instructor">{{ instructor }}</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 col-sm-12 mb-3">
+            <select [(ngModel)]="selectedCategory" class="form-control">
+                <option value="">All Categories</option>
+                <option *ngFor="let category of getCategories()" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 col-sm-12 mb-3"> <select [(ngModel)]="selectedRating" class="form-control">
+                <option [value]="null">All Ratings</option>
+                <option *ngFor="let rating of [1, 2, 3, 4, 5]" [value]="rating">{{ rating }}</option>
+
+            </select> </div>
+    </div>
+    <button (click)="filterCourses()" class="btn btn-primary">Filter</button>
+    <button (click)="clearFilters()" class="btn btn-secondary ml-2">Clear Filters</button>
+</div>
+
+<div class="container all-courses">
+    
+    <div *ngIf="filteredCourses.length > 0">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4" *ngFor="let course of filteredCourses">
+                <app-course-card [course]="course"></app-course-card>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="text-align: center; margin-top: 40px;">All Courses</h3>
+    <div class="row">
+        <div *ngFor="let category of getCategories()">
+            <h5 class="category-title" [id]="category"  >{{ category }}</h5>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4" *ngFor="let course of getAllCoursesByCategory(category)">
+                    <app-course-card [course]="course"></app-course-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="price-box">
+    <div >
+      <div class="package-type">
+        {{ pricingBox.name }}
+      </div>
+      <div class="price">
+        <span class="dollar-sign">$</span><span>{{ pricingBox.price }}</span>
+      </div>
+    </div>
+    <div class="box-body">
+      <ul class="list-unstyled">
+        <li *ngFor="let feature of pricingBox.features">
+          <div class="i-tag">
+            <i class="fa-solid fa-check"></i>
+          </div>
+            {{ feature }}</li>
+      </ul>
+      <button class="purchase" >Purchase</button>
+    </div>
+  </div>

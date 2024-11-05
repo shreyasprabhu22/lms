@@ -1,0 +1,26 @@
+.card {
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    height:150px;
+    width:300px;
+    
+}
+.card:hover{
+    background-color: #20B486;
+    color: white;
+    i{
+        color: white;
+    }
+}
+.card-title {
+  font-weight: bold;
+}
+
+.description {
+   font-size: small;
+}

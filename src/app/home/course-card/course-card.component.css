@@ -1,0 +1,39 @@
+.card{
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+img{
+    margin: 5px;
+    border-radius: 5px;
+}
+.card-title{
+    font-weight: bold;
+}
+.Category{
+    color: #20B486;
+}
+.instructor-info {
+    margin-top: 15px;
+}
+
+.instructor-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+.instructor-name{
+    font-size: smaller;
+}
+
+.rating .fa {
+    color: #ddd;
+    
+}
+
+.rating .fa.checked {
+    color: #FFA500 ; 
+}

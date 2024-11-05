@@ -1,0 +1,44 @@
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+button {
+    width: 100%;
+    background: #20B486;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+mat-error {
+    padding-left: 20px;
+    color: #f44336;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    mat-form-field {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    mat-error {
+        padding-left: 10px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}

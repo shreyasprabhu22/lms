@@ -1,0 +1,16 @@
+div{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 180px;
+    margin-right: 180px;
+    padding: 30px;
+}
+@media (max-width: 600px) {
+    div{
+        flex-direction: column;
+        width: 90%;
+        margin: 0;
+    }
+}
