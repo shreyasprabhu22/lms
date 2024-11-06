@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+
+<mat-paginator 
+  [length]="length" 
+  [pageSize]="pageSize" 
+  [pageSizeOptions]="pageSizeOptions" 
+  (page)="onPageChange($event)" 
+  aria-label="Select page">
+</mat-paginator>
+
+<mat-card class="card-container" *ngFor="let blog_info of paginatedBlogs">
+  <app-blog-component [blog_data]="blog_info"></app-blog-component>
+</mat-card>
