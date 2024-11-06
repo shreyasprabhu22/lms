@@ -48,8 +48,8 @@ export class HomeComponent {
         "Duration": "10 weeks",
         "Price": 199.99,
         "Description": "Learn the basics of Python programming, including data types, functions, and control flow.",
-        "Image": "../../assets/python.jpeg",
-        "IImage":"../../assets/i1.jpeg",
+        "Image": "assets/python.jpeg",
+        "IImage":"assets/i1.jpeg",
         "Rating":5
     },
     {
@@ -60,8 +60,8 @@ export class HomeComponent {
         "Duration": "12 weeks",
         "Price": 299.99,
         "Description": "A comprehensive bootcamp covering HTML, CSS, JavaScript, and modern frameworks.",
-        "Image": "../../assets/web_development_bootcamp.jpeg",
-        "IImage":"../../assets/i2.jpeg",
+        "Image": "assets/web_development_bootcamp.jpeg",
+        "IImage":"assets/i2.jpeg",
         "Rating":5
     },
     {
@@ -72,8 +72,8 @@ export class HomeComponent {
         "Duration": "8 weeks",
         "Price": 249.99,
         "Description": "Master the fundamental concepts of data science, including data analysis and machine learning.",
-        "Image": "../../assets/data_science_essentials.jpeg",
-        "IImage":"../../assets/i3.jpeg",
+        "Image": "assets/data_science_essentials.jpeg",
+        "IImage":"assets/i3.jpeg",
         "Rating":4
     },
     {
@@ -84,8 +84,8 @@ export class HomeComponent {
         "Duration": "6 weeks",
         "Price": 149.99,
         "Description": "Explore effective digital marketing strategies, including SEO, social media, and email marketing.",
-        "Image": "../../assets/digital_marketing.jpeg",
-        "IImage":"../../assets/i4.jpeg",
+        "Image": "assets/digital_marketing.jpeg",
+        "IImage":"assets/i4.jpeg",
         "Rating":5
     }
   ]
@@ -132,7 +132,7 @@ blog_data = [
     "date": "October 01, 2024",
     "category": "Education",
     "type": "blog",
-    "image":"../../../assets/blog.jpeg"
+    "image":"assets/blog.jpeg"
   },
   {
     "title": "Introduction to Data Science",
@@ -140,7 +140,7 @@ blog_data = [
     "date": "October 05, 2024",
     "category": "Data Science",
     "type": "webinar",
-    "image":"../../../assets/webinar.jpeg"
+    "image":"assets/webinar.jpeg"
   },
   {
     "title": "Effective Online Learning Strategies",
@@ -148,7 +148,7 @@ blog_data = [
     "date": "September 20, 2024",
     "category": "Education",
     "type": "blog",
-    "image":"../../../assets/blog.jpeg"
+    "image":"assets/blog.jpeg"
   },
   {
     "title": "Advanced Python Programming",
@@ -156,7 +156,7 @@ blog_data = [
     "date": "October 12, 2024",
     "category": "Programming",
     "type": "webinar",
-    "image":"../../../assets/webinar.jpeg"
+    "image":"assets/webinar.jpeg"
   }
 ]
 

@@ -25,8 +25,8 @@ export class AllCoursesComponent {
       Price: 199.99,
       Description:
         'Learn the basics of Python programming, including data types, functions, and control flow.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 5,
     },
     {
@@ -38,8 +38,8 @@ export class AllCoursesComponent {
       Price: 179.99,
       Description:
         'A foundational course in JavaScript, covering syntax, DOM manipulation, and event handling.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 4,
     },
     {
@@ -51,8 +51,8 @@ export class AllCoursesComponent {
       Price: 299.99,
       Description:
         'Dive deep into C++ with advanced topics including templates, STL, and multi-threading.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 3,
     },
     {
@@ -64,8 +64,8 @@ export class AllCoursesComponent {
       Price: 249.99,
       Description:
         'Build web applications using Ruby on Rails, covering MVC architecture and RESTful design.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 5,
     },
 
@@ -79,8 +79,8 @@ export class AllCoursesComponent {
       Price: 299.99,
       Description:
         'A comprehensive bootcamp covering HTML, CSS, JavaScript, and modern frameworks.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 5,
     },
     {
@@ -92,8 +92,8 @@ export class AllCoursesComponent {
       Price: 149.99,
       Description:
         'Learn how to create responsive websites using CSS Flexbox and Grid.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 4,
     },
     {
@@ -105,8 +105,8 @@ export class AllCoursesComponent {
       Price: 199.99,
       Description:
         'An introduction to popular frontend frameworks like React, Vue, and Angular.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 3,
     },
 
@@ -120,8 +120,8 @@ export class AllCoursesComponent {
       Price: 249.99,
       Description:
         'Master the fundamental concepts of data science, including data analysis and machine learning.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 4,
     },
     {
@@ -133,8 +133,8 @@ export class AllCoursesComponent {
       Price: 299.99,
       Description:
         'Comprehensive course on machine learning algorithms, techniques, and real-world applications.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 5,
     },
     {
@@ -146,8 +146,8 @@ export class AllCoursesComponent {
       Price: 199.99,
       Description:
         'Learn how to visualize data effectively using libraries like Matplotlib and Seaborn.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 3,
     },
     {
@@ -159,8 +159,8 @@ export class AllCoursesComponent {
       Price: 179.99,
       Description:
         'Understand statistical concepts that are crucial for data science.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 2,
     },
 
@@ -174,8 +174,8 @@ export class AllCoursesComponent {
       Price: 149.99,
       Description:
         'Explore effective digital marketing strategies, including SEO, social media, and email marketing.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 5,
     },
     {
@@ -187,8 +187,8 @@ export class AllCoursesComponent {
       Price: 99.99,
       Description:
         'Learn how to build and execute a social media strategy that drives engagement.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 4,
     },
     {
@@ -200,8 +200,8 @@ export class AllCoursesComponent {
       Price: 129.99,
       Description:
         'Develop a comprehensive content marketing strategy to attract and retain customers.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 4,
     },
 
@@ -215,8 +215,8 @@ export class AllCoursesComponent {
       Price: 199.99,
       Description:
         'An introduction to graphic design principles and software like Adobe Illustrator.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 5,
     },
     {
@@ -228,8 +228,8 @@ export class AllCoursesComponent {
       Price: 159.99,
       Description:
         'Learn digital illustration techniques using Procreate and Adobe Fresco.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 4,
     },
     {
@@ -241,8 +241,8 @@ export class AllCoursesComponent {
       Price: 179.99,
       Description:
         'Understand branding principles and create a brand identity for a fictional company.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 4,
     },
 
@@ -256,8 +256,8 @@ export class AllCoursesComponent {
       Price: 249.99,
       Description:
         'Explore the fundamentals of entrepreneurship, including idea validation and business planning.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 5,
     },
     {
@@ -269,8 +269,8 @@ export class AllCoursesComponent {
       Price: 199.99,
       Description:
         'Learn the essential principles and practices of effective project management.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 3,
     },
     {
@@ -282,8 +282,8 @@ export class AllCoursesComponent {
       Price: 149.99,
       Description:
         'Understand personal finance basics, including budgeting and investing.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 2,
     },
     {
@@ -295,8 +295,8 @@ export class AllCoursesComponent {
       Price: 199.99,
       Description:
         'Study the principles of marketing management and strategic marketing planning.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 4,
     },
 
@@ -310,8 +310,8 @@ export class AllCoursesComponent {
       Price: 89.99,
       Description:
         'Learn techniques to manage your time more effectively and boost productivity.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 5,
     },
     {
@@ -323,8 +323,8 @@ export class AllCoursesComponent {
       Price: 99.99,
       Description:
         'Enhance your communication skills for personal and professional growth.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 4,
     },
     {
@@ -336,8 +336,8 @@ export class AllCoursesComponent {
       Price: 149.99,
       Description:
         'Learn the principles of effective leadership and how to lead teams successfully.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 4,
     },
     {
@@ -349,8 +349,8 @@ export class AllCoursesComponent {
       Price: 99.99,
       Description:
         'Practice mindfulness techniques to manage stress and improve well-being.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 5,
     },
 
@@ -364,8 +364,8 @@ export class AllCoursesComponent {
       Price: 120.0,
       Description:
         'An introduction to yoga, covering basic postures and breathing techniques.',
-      Image: '../../assets/course2.jpeg',
-      IImage: '../../assets/i2.jpeg',
+      Image: 'assets/course2.jpeg',
+      IImage: 'assets/i2.jpeg',
       Rating: 4,
     },
     {
@@ -377,8 +377,8 @@ export class AllCoursesComponent {
       Price: 90.0,
       Description:
         'Learn the fundamentals of nutrition and how to create a balanced diet.',
-      Image: '../../assets/course3.jpeg',
-      IImage: '../../assets/i3.jpeg',
+      Image: 'assets/course3.jpeg',
+      IImage: 'assets/i3.jpeg',
       Rating: 5,
     },
     {
@@ -390,8 +390,8 @@ export class AllCoursesComponent {
       Price: 180.0,
       Description:
         'Explore various fitness training techniques to enhance physical performance.',
-      Image: '../../assets/course4.jpeg',
-      IImage: '../../assets/i4.jpeg',
+      Image: 'assets/course4.jpeg',
+      IImage: 'assets/i4.jpeg',
       Rating: 3,
     },
     {
@@ -403,8 +403,8 @@ export class AllCoursesComponent {
       Price: 75.0,
       Description:
         'Understand the importance of mental health and ways to support it.',
-      Image: '../../assets/course1.jpeg',
-      IImage: '../../assets/i1.jpeg',
+      Image: 'assets/course1.jpeg',
+      IImage: 'assets/i1.jpeg',
       Rating: 4,
     },
   ];
