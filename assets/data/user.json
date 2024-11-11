@@ -1,0 +1,41 @@
+[
+    {
+    "userid":"U001",
+      "firstName": "Shreya",
+      "lastName": "Prabhu",
+      "email": "shreya.ms.prabhu@gmail.com",
+      "degree": "BE",
+      "university": "Nitte",
+      "username": "shreya.p",
+      "password": "Shreya@1",
+      "subscription": "Free",
+      "coursesTaken": ["C001", "C002","C005","C006"]
+    },
+    {
+    "userid":"U002",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "degree": "B.Sc. Computer Science",
+      "university": "XYZ University",
+      "username": "john_doe",
+      "password": "johnPassword123",
+      "subscription": "Buy",
+      "coursesTaken": ["C003","C008"]
+    },
+    {
+    "userid":"U003",
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "degree": "B.A. Business Administration",
+  "university": "ABC University",
+  "username": "jane_smith",
+  "password": "janePassword123",
+  "subscription": "Free",
+  "coursesTaken": ["C002", "C004", "C007"]
+}
+
+  ]
+
+
