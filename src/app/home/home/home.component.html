@@ -4,8 +4,10 @@
     <h4>Empower Your Learning Journey</h4>
     <p>Everything you need to succeed in one convenient platform.</p>
     <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6" *ngFor="let feature of features">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6" style =" display: flex;
+          justify-content: center;
+          align-items: center;" *ngFor="let feature of features">
             <app-feature-card 
               [iconClass]="feature.iconClass"
               [title]="feature.title"
@@ -38,7 +40,7 @@
 <div class="container popular">
   <h5 style="text-align: center;">Our Popular Courses</h5>
   <div class="row">
-      <div class="col-md-3 col-sm-6 mb-4" *ngFor="let course of courses">
+      <div class="col-md-3 col-sm-6 "  *ngFor="let course of courses">
           <app-course-card [course]="course"></app-course-card>
       </div>
   </div>
@@ -47,15 +49,15 @@
 
 <div class="container pricing-container" >
   <h5 style="text-align: center;">Check Out Our LMS Pricing</h5>
-  <div class="row pricing-grid justify-content-center"> 
-    <div class="col-lg-4 col-md-6 col-sm-12 pricecard" *ngFor="let pricingBox of pricingBoxes">
+  <div class="row pricing-grid "> 
+    <div class="col-lg-4 col-md-6 col-sm-12 mt-4" *ngFor="let pricingBox of pricingBoxes">
       <app-price-card [pricingBox]="pricingBox"></app-price-card>
     </div>
   </div>
 </div>
 
 <div class="container blog-container">
-  <h5 style="text-align: center;">Recent Blogs and Webinars</h5>
+  <h5 style="text-align: center;">Upcoming Blogs and Webinars</h5>
   <div class="row blog-grid"> 
     <div class="col-lg-6 col-md-6 col-sm-12 mb-4 blogcard" *ngFor="let blog of blog_data">
       <app-blog-container [blogdata]="blog"></app-blog-container>

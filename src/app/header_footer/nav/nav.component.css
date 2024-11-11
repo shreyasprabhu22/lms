@@ -19,3 +19,8 @@ button{
     border: 1px black;
 }
 
+@media (max-width: 768px) {
+  button{
+    margin-top: 20px;
+  }
+}

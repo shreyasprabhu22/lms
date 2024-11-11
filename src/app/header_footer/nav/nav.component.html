@@ -11,36 +11,41 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+                <li *ngIf="!isLoggedIn"  class="nav-item">
+                    <a class="nav-link home" routerLink="/home" routerLinkActive="active">Home</a>
                 </li>
 
+                <li  *ngIf="isLoggedIn" class="nav-item">
+                    <a   class="nav-link my-courses" routerLink="/mycourses" routerLinkActive="active">My Courses</a>
+                </li>
 
                 <li class="nav-item dropdown align-chk">
                     <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside">Courses</a>
                     <ul class="dropdown-menu shadow">
-                        <li><a class="dropdown-item" routerLink="/courses">All Courses</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/courses']" >Programming Courses</a></li>
-                        <li><a class="dropdown-item" >Web Development Courses</a></li>
+                        <li><a class="dropdown-item" routerLink="/courses" >All Courses</a></li>
+                        <li><a class="dropdown-item">Programming Courses</a></li>
+                        <li><a class="dropdown-item">Web Development Courses</a></li>
                     </ul>
                 </li>
 
-
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/aboutus" routerLinkActive="active">About Us</a>
+                    <a class="nav-link about" routerLink="/aboutus" routerLinkActive="active">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/blogs" routerLinkActive="active">Blogs</a>
+                    <a class="nav-link blogs" routerLink="/blogs" routerLinkActive="active">Blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact Us</a>
+                    <a class="nav-link contact" routerLink="/contact" routerLinkActive="active">Contact Us</a>
                 </li>
-                <li class="nav-item">
+                <li  *ngIf="!isLoggedIn" class="nav-item">
                     <button routerLink="/login" id="loginbutton">Login</button>
                 </li>
-                <li class="nav-item">
+                <li  *ngIf="!isLoggedIn" class="nav-item">
                     <button routerLink="/signup" id="signinbutton">Sign In</button>
+                </li>
+                <li *ngIf="isLoggedIn" class="nav-item">
+                    <button  (click)="logout()" id="logoutbutton">Log Out</button>
                 </li>
             </ul>
         </div>

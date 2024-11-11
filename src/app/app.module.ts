@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MaterialModule} from './sharedmaterial/sharedmaterial.module'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';  
+
+import { UsersService } from './services/users.service';
+import { CoursesService } from './services/courses.service';
+import { EmailService } from './services/email.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +31,11 @@ import { AboutUsComponent } from './about-us/about-us/about-us.component';
 import { AccordianComponent } from './about-us/accordian/accordian.component';
 import { CategoryConatinerComponent } from './about-us/category-conatiner/category-conatiner.component';
 import { SigninComponent } from './signin/signin.component';
-
+import { BlogPageComponent } from './blogs/blog-page/blog-page.component';
+import { BlogComponentComponent } from './blogs/blog-component/blog-component.component';
+import { MyCoursesComponent } from './my-courses/my-courses/my-courses.component';
+import { PricingPageComponent } from './pricing/pricing-page/pricing-page.component';
+import { CartComponent } from './all-courses/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -50,16 +59,25 @@ import { SigninComponent } from './signin/signin.component';
     AboutUsComponent,
     AccordianComponent,
     CategoryConatinerComponent,
-    SigninComponent
+    SigninComponent,
+    BlogPageComponent,
+    BlogComponentComponent,
+    MyCoursesComponent,
+    PricingPageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UsersService,
+    CoursesService,
+    EmailService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

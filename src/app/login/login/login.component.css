@@ -1,6 +1,5 @@
 #page {
     height: 100vh;
-    background: #f0f4f8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +19,7 @@
 }
 
 #login-form {
-    margin-top: 50px;
+   
     padding: 30px;
 }
 

@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+
+<div class="row">
+   
+  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="card profile-card shadow-sm">
+      <div class="card-body text-center">
+        <img src="assets/user.png" alt="Profile Picture" class="circular-image" />
+        <h5 class="card-title">Welcome, {{ currentUser.firstName }} {{ currentUser.lastName }}</h5>
+        <p class="card-text">{{ currentUser.degree }} at {{ currentUser.university }}</p>
+        <p class="text-muted">{{ currentUser.email }}</p>
+        <p><strong>Subscription: </strong>{{ currentUser.subscription }}</p>
+        
+        
+        <div *ngIf="currentUser.subscription === 'Buy Courses' || currentUser.subscription === 'Free'">
+          <p>You have {{currentUser.subscription}} plan</p>
+          <p>Click here to upgrade to Enterprise plan</p>
+          <button (click)="upgrade()" class="btn btn-upgrade">Upgrade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses Section -->
+  <div class="col-8">
+    <div class="row  courses " >
+      <div class="col-md-4 col-sm-6 "   *ngFor="let course of coursesTakenByUser">
+        <app-course-card [course]="course"></app-course-card>
+      </div>
+    </div>
+
+    <div *ngIf="coursesTakenByUser.length === 0">
+      <p>You have not started any courses. Go to All Courses and enroll in a course</p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

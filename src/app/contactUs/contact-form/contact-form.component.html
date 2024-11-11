@@ -1,5 +1,5 @@
 <div class="container form-container">
-    <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
       <h5 style="text-align: center;"> Leave Us a Message</h5>
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Name</mat-label>

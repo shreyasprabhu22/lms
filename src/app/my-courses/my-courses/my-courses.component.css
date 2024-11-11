@@ -1,0 +1,21 @@
+
+.circular-image{
+   height:100px;
+   width:100px
+}
+.card-title{
+    padding-top: 15px;
+}
+
+
+@media (max-width: 768px) {
+   .courses{
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   }
+  }
+  
+
+
+  

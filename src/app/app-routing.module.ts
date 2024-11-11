@@ -6,6 +6,9 @@ import { LoginComponent } from './login/login/login.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { AboutUsComponent } from './about-us/about-us/about-us.component';
 import { SigninComponent } from './signin/signin.component';
+import { BlogPageComponent } from './blogs/blog-page/blog-page.component';
+import { MyCoursesComponent } from './my-courses/my-courses/my-courses.component';
+ import { CartComponent } from './all-courses/cart/cart.component';
 
 const routes: Routes = [{path:'', redirectTo: 'home', pathMatch: 'full'},
   {path:'home', component: HomeComponent},
@@ -13,7 +16,10 @@ const routes: Routes = [{path:'', redirectTo: 'home', pathMatch: 'full'},
   {path:'login',component:LoginComponent},
   {path:'courses',component:AllCoursesComponent},
   {path:'aboutus',component:AboutUsComponent},
-  {path:'signup',component:SigninComponent}
+  {path:'signup',component:SigninComponent},
+  {path:'blogs', component:BlogPageComponent},
+  {path:'mycourses', component:MyCoursesComponent},
+  {path:'cart',component:CartComponent}
 ];
 
 @NgModule({

@@ -1,39 +1,105 @@
-.card{
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-    border: none;
+.card {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 620px;
 }
-img{
-    margin: 5px;
-    border-radius: 5px;
-}
-.card-title{
+img{ margin: 5px; border-radius: 5px; }
+  
+  .card-title {
     font-weight: bold;
-}
-.Category{
+  }
+  
+  .Category {
     color: #20B486;
-}
-.instructor-info {
+  }
+  
+  .instructor-info {
     margin-top: 15px;
-}
-
-.instructor-img {
+    display: flex;
+    align-items: center;
+  }
+  
+  .instructor-img {
     border-radius: 50%;
     width: 40px;
     height: 40px;
     object-fit: cover;
     margin-right: 10px;
-}
-
-
-.instructor-name{
+  }
+  
+  .instructor-name {
     font-size: smaller;
-}
-
-.rating .fa {
+  }
+  
+  .rating .fa {
     color: #ddd;
-    
+  }
+  
+  .rating .fa.checked {
+    color: #FFA500;
+  }
+  
+  button {
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding: 10px;
+    width: 60%; 
+  }
+  
+  .card:not(:has(button)) {
+    height: 550px; 
+  }
+
+@media (max-width: 768px) {
+  .card {
+      margin: 10px;
+      height: 800px;
+      padding: 20px;
+  }
+  img{
+    height: 400px;
+    width:100%
+  }
+
+  .card-body {
+      padding: 10px;
+  }
+
+  .card-title {
+      font-size: 1.1rem;
+      margin: 8px 0;
+  }
+
+  .Category {
+      font-size: 0.9rem;
+  }
+
+  .instructor-info {
+      margin-top: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .instructor-img {
+      width: 50px;
+      height: 50px;
+      
+  }
+
+  .instructor-name {
+      font-size: 0.9rem;
+  }
+
+  button {
+      width: 100%;
+      margin: 15px 0;
+      align-self: stretch;
+  }
+
+  .card:not(:has(button)) {
+    height: 720px; 
+  }
 }
 
-.rating .fa.checked {
-    color: #FFA500 ; 
-}

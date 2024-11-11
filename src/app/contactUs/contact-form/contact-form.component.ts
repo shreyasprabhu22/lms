@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -7,7 +8,33 @@ import { Component } from '@angular/core';
 })
 export class ContactFormComponent {
 
-    onSubmit() {
+  constructor(private emailService: EmailService) {}
+
+    onSubmit(contactForm:any) {
+
+      
+      const name=contactForm.value.name;
+      const email = contactForm.value.email;
+      const  message= "You have received a new message from a user"+ contactForm.value.message
+
+      
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message
+      };
+
+      
+      this.emailService.sendEmail(templateParams).then(
+        (response) => {
+          console.log('Email sent successfully:', response);
+          alert('Thank you! Your message has been sent.');
+        },
+        (error) => {
+          console.error('Error sending email:', error);
+          alert('Oops! Something went wrong, please try again.');
+        }
+      );
     alert("form submitted")
  }
 }

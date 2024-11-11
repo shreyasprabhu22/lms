@@ -24,3 +24,10 @@
 .description {
    font-size: small;
 }
+@media (max-width: 768px) {
+    .card{
+        margin: 0;
+        margin-top: 20px;
+        
+    }
+}
