@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+
+<div class="image">
+    <img [src]="blog_data.images[1]">
+</div>
+<div class="blog-container">
+<div>
+    <div class="title">
+        <h4>{{blog_data.title}}</h4>
+        <p class="category">{{blog_data.category}}</p>
+    </div>
+    <p>{{blog_data.content}}</p>
+    <div class="author">
+        <img [src]="blog_data.authorImage">
+        <p>{{ blog_data.author}}</p>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>

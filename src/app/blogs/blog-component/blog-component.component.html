@@ -1,6 +1,6 @@
 <mat-card class="card-container blog">
     <div class="card-container">
-        <img height="250px" width="300px" [src]="blog_data.image" alt="blog_image">
+        <img height="250px" width="300px" [src]="blog_data.image[0]" alt="blog_image">
     </div>
     <div class="card-container data">
         <p id="title">{{blog_data.title}}</p>
@@ -8,6 +8,6 @@
             <p id="author"> By {{blog_data.author}} {{blog_data.date}}</p>
             <p id="category">{{blog_data.category}}</p>
         </div>
-        <p id="content">{{blog_data.content}}</p>
+        <p id="content">{{blog_data.description}}</p>
     </div>
 </mat-card>
