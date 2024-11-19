@@ -1,0 +1,224 @@
+:host {
+    display: block;
+    background-color: #e6e6e4;
+    font-family: "Arial", sans-serif;
+    color: #333;
+  }
+  
+  
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2, h3, h4, h5 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .title {
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .title p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .title i {
+    margin-right: 10px;
+  }
+  
+  .title .category, .title .level, .title .prerequisites {
+    font-size: 1.1em;
+  }
+  
+  .title .category {
+    color: #007bff;
+  }
+  
+  .title .prerequisites,
+  .title .level {
+    color: #666;
+  }
+  
+  .title .duration {
+    color: #888;
+  }
+  
+ .details{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+ }
+  .outline {
+    flex: 2;
+    margin-right: 30px;
+  }
+  
+  .outline h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .outline h3 {
+    color: #007bff;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  .outline p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .outline section {
+    margin-bottom: 40px;
+    width:60%
+    
+  }
+  
+  
+  .instructor {
+    flex: 0 0 auto;                
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 40%;
+    box-sizing: border-box;
+    margin-top: 20px;             
+    height: auto;                  
+  }
+  
+  
+  .instructor img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .instructor h5 {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .instructor p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  
+  .reviews {
+    flex: 1;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reviews .user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .reviews .user img {
+    border-radius: 50%;
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .reviews h5 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .reviews .rating {
+    margin: 10px 0;
+  }
+  
+  .reviews .fa-star {
+    font-size: 18px;
+    color: #ccc;
+    margin-right: 3px;
+  }
+  
+  .reviews .fa-star.checked {
+    color: #ffcc00;
+  }
+  
+  .reviews p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  
+  .faqs {
+    flex: 1;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faqs h4 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .faqs p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  

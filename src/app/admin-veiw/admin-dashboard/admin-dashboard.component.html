@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+
+<mat-sidenav-container class="sidenav-container">
+  
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item (click)="setActiveContent('dashboard')">
+       Dashboard
+      </a>
+      <a mat-list-item (click)="setActiveContent('instructor')">
+        Instructor Management
+      </a>
+      <a mat-list-item (click)="setActiveContent('blog')">
+         Blog Management
+      </a>
+      <a mat-list-item (click)="setActiveContent('user')">
+        User Management
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div *ngIf="activeContent === 'dashboard'">
+      <div style="text-align: center; padding: 20px;">
+        <h3>Welcome Admin</h3>
+        <p>You can veiw the users, blogs and instructors data</p>
+      </div>
+      <div><app-graphs></app-graphs></div>
+      
+    </div>
+    <div *ngIf="activeContent === 'instructor'">
+      <app-instructor-management></app-instructor-management>
+    </div>
+    <div *ngIf="activeContent === 'blog'">
+      <app-blog-management></app-blog-management>
+    </div>
+    <div *ngIf="activeContent === 'user'">
+      <app-user-management></app-user-management>
+    </div>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+
+<app-footer></app-footer>

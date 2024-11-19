@@ -1,0 +1,43 @@
+button {
+    background-color: #20B486;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin:10px
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+      flex-direction: column;
+    }
+
+    .toolbar button {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+    }
+
+    th, td {
+      font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolbar button {
+      font-size: 14px;
+    }
+
+    .toolbar mat-paginator {
+      font-size: 12px;
+    }
+
+    th, td {
+      font-size: 12px;
+    }
+}

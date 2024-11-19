@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <div class="cart-container">
-    <h2>Your Shopping Cart</h2>
+    <h2>Your Cart</h2>
   
     <div *ngIf="cart.length === 0" class="empty-cart">
       <p>Your cart is empty.</p>
@@ -9,15 +9,15 @@
     <div *ngIf="cart.length > 0" class="cart-items">
       <div class="cart-item" *ngFor="let course of cart">
         <div class="course-details">
-          <img [src]="course.Image" alt="{{ course.CourseName }}" class="course-image" />
+          <img [src]="course.courseDetails.img" alt="{{ course.name }}" class="course-image" />
           <div class="course-info">
-            <h3>{{ course.CourseName }}</h3>
-            <p><strong>Instructor:</strong> {{ course.Instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.Duration }}</p>
-            <p><strong>Price:</strong> {{ course.Price | currency }}</p>
-          </div>
+            <h3>{{ course.courseDetails?.name }}</h3>
+          <p><strong>Description:</strong> {{ course.courseDetails?.description }}</p>
+          <p><strong>Duration:</strong> {{ course.courseDetails?.duration }} weeks</p>
+          <p><strong>Price:</strong> {{ course.courseDetails?.price | currency }}</p>
         </div>
-        <button (click)="removeCourse(course.CourseID)" class="remove-btn">Remove</button>
+        </div>
+        <button (click)="removeCourse(course.courseDetails.course_id)" class="remove-btn">Remove</button>
       </div>
   
       <div class="total-cost">

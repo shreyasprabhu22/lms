@@ -1,0 +1,108 @@
+#page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  #signin-container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #20B486;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  .week_details{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    mat-form-field{
+        width: 100%;
+    }
+  }
+  button:hover {
+    background-color: #1A9A72;
+  }
+  
+  ::ng-deep .mat-step-icon {
+    background-color: #20B486 !important;
+    color: white !important;
+  }
+  
+  @media (max-width: 768px) {
+    #signin-container {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    form {
+      max-width: 100%;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 12px;
+    }
+  
+    mat-form-field {
+      width: 100%;
+    }
+  
+    #page {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #signin-container {
+      padding: 10px;
+    }
+  
+    button {
+      padding: 12px;
+      font-size: 14px;
+    }
+  
+    mat-form-field {
+      font-size: 14px;
+    }
+  
+    mat-stepper {
+      font-size: 14px;
+    }
+  
+    .mat-step-label {
+      font-size: 14px;
+    }
+  
+    .mat-step-header {
+      padding: 10px 0;
+    }
+  }
+  

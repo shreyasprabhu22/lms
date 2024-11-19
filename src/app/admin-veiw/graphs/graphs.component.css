@@ -1,0 +1,11 @@
+.dashboard{
+    padding: 10px;
+}
+.card{
+    margin: 10px;
+    background-color:rgba(80, 161, 136) ;
+    color: white;
+}
+.card:hover{
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}

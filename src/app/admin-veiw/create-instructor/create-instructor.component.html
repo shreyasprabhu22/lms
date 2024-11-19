@@ -1,0 +1,93 @@
+<app-nav></app-nav>
+
+<div id="page">
+    <div id="signin-container">
+      <mat-stepper #stepper>
+  
+        <!-- Step 1: Instructor Details -->
+        <mat-step [stepControl]="instructorFormGroup">
+          <form [formGroup]="instructorFormGroup">
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Instructor Name" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" placeholder="example@example.com" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Bio</mat-label>
+              <textarea matInput formControlName="bio" placeholder="Bio of the instructor" required></textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Experience</mat-label>
+              <textarea matInput formControlName="experience" placeholder="Experience of the instructor" required></textarea>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Review Rating</mat-label>
+              <input matInput type="number" formControlName="reviewIns" placeholder="1 to 5" required>
+            </mat-form-field>
+  
+  
+            <mat-form-field>
+              <mat-label>Specialization</mat-label>
+              <input matInput formControlName="specialization" placeholder="Specialization" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>LinkedIn</mat-label>
+              <input matInput formControlName="linkedin" placeholder="LinkedIn URL" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Twitter</mat-label>
+              <input matInput formControlName="twitter" placeholder="Twitter URL" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Location</mat-label>
+              <input matInput formControlName="location" placeholder="Instructor Location" required>
+            </mat-form-field>
+  
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Step 2: Username and Password -->
+        <mat-step [stepControl]="credentialsFormGroup">
+          <form [formGroup]="credentialsFormGroup">
+            <mat-form-field>
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" placeholder="Username" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="password" matTooltip="Password should include uppercase, lowercase, number, and special character" formControlName="password" required>
+            </mat-form-field>
+  
+            <mat-form-field >
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" formControlName="confirmPassword" required>
+            </mat-form-field>
+  
+            <mat-label>{{msg}}</mat-label>
+  
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="submitForm()">Submit</button>
+            </div>
+          </form>
+        </mat-step>
+  
+      </mat-stepper>
+    </div>
+  </div>
+  
+  <app-footer></app-footer>

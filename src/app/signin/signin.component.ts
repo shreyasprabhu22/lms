@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsersService } from '../services/users.service';
-import { User } from '../services/users.service';
+import { UserService } from '../services/user.service';
+import { User } from '../interfaces/userInterface';
 
 @Component({
   selector: 'app-signin',
@@ -14,23 +14,37 @@ export class SigninComponent {
   educationFormGroup!: FormGroup;
   credentialsFormGroup!: FormGroup;
   msg = '';
+  availableInterests: string[] = [
+    'Artificial Intelligence',
+    'Machine Learning',
+    'Cybersecurity',
+    'Cloud Computing',
+    'Web Development',
+    'Data Science',
+    'Blockchain'
+  ];
+  
 
   constructor(
     private _formBuilder: FormBuilder,
     private router: Router,
-    private usersService: UsersService
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.personalFormGroup = this._formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]]
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required, ]],
+      dateofBirth: ['', [Validators.required]],
+      gender :['', [Validators.required]]
     });
 
     this.educationFormGroup = this._formBuilder.group({
-      degree: ['', [Validators.required]],
-      university: ['', [Validators.required]]
+      currentInstitution: ['', [Validators.required]],
+      bio: ['', [Validators.required]],
+      interests: ['', [Validators.required]],
+      location: ['', [Validators.required]]
     });
 
     this.credentialsFormGroup = this._formBuilder.group(
@@ -65,20 +79,26 @@ export class SigninComponent {
     if (this.personalFormGroup.valid && this.educationFormGroup.valid && this.credentialsFormGroup.valid) {
 
       const newUser: User = {
-        id: '',
-        userid: '',
-        firstName: this.personalFormGroup.value.firstName,
-        lastName: this.personalFormGroup.value.lastName,
+        userId: '',
+        name: this.personalFormGroup.value.name,
         email: this.personalFormGroup.value.email,
-        degree: this.educationFormGroup.value.degree,
-        university: this.educationFormGroup.value.university,
         username: this.credentialsFormGroup.value.username,
         password: this.credentialsFormGroup.value.password,
+        profilePhoto:'assets/user.png',
+        phoneNumber:this.personalFormGroup.value.phoneNumber,
+        currentInstitution: this.educationFormGroup.value.currentInstitution,
+        gender : this.personalFormGroup.value.gender,
+        role:'User',
+        dateOfBirth:this.personalFormGroup.value.dateOfBirth,
+        enrollmentDate:new Date(),
+        bio:this.educationFormGroup.value.bio,
+        interests:this.educationFormGroup.value.interests ,
+        location:this.educationFormGroup.value.location,
         subscription: 'free',
-        CoursesTaken: []
+        purchasedCourses: []
       };
 
-      this.usersService.createUser(newUser).subscribe({
+      this.userService.postData(newUser).subscribe({
         next: (response) => {
           alert('User created successfully!');
           this.router.navigate(['/home']);

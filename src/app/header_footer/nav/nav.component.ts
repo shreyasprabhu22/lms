@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router'
-import { UsersService } from 'src/app/services/users.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,29 +9,23 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class NavComponent {
   @Input() customColor: string="";
-  currentRoute: string = '';
-  isLoggedIn: boolean = false;
+  isLoggedIn :any= false;
+  role:any=""
 
-  constructor(private router: Router,private userservice:UsersService, private activatedRoute: ActivatedRoute) {}
+  constructor(private router:Router, private loginservice:LoginService) {}
   
   ngOnInit(): void {
-
-    this.router.events.subscribe(() => {
-      this.currentRoute = this.router.url;
-    });
-
-    this.isLoggedIn = !!this.userservice.getCurrentUser();
+    this.isLoggedIn = this.loginservice.currentUser !== null;
+    this.role = this.loginservice.role;
+    console.log('isLoggedIn:', this.isLoggedIn);
+    console.log('role:', this.role);
   }
-
   
-  isRouteActive(route: string): boolean {
-    return this.currentRoute === route;
-  }
-
   
-
-  logout(){
+  logout() {
+    this.loginservice.logout();
     this.router.navigate(['/home']);
   }
+  
 }
  

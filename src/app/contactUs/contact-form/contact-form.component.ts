@@ -19,7 +19,7 @@ export class ContactFormComponent {
 
       
       const templateParams = {
-        from_name: name,
+        from_name: contactForm.value.name,
         from_email: email,
         message: message
       };

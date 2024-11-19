@@ -1,92 +1,125 @@
 <app-nav></app-nav>
 
 <div id="page">
-    <div id="signin-container">
-        <mat-stepper #stepper>
-  
-            <!-- Step 1: Personal Details -->
-            <mat-step [stepControl]="personalFormGroup" >
-              <form [formGroup]="personalFormGroup">
-                <ng-template matStepLabel>Enter Personal Details</ng-template>
-                
-                <mat-form-field>
-                  <mat-label>First Name</mat-label>
-                  <input matInput placeholder="John " formControlName="firstName" required>
-                </mat-form-field>
+  <div id="signin-container">
+    <mat-stepper #stepper>
 
-                <mat-form-field>
-                  <mat-label>Last Name</mat-label>
-                  <input matInput placeholder=" Doe" formControlName="lastName" required>
-                </mat-form-field>
-             
+      <!-- Step 1: Personal Details -->
+      <mat-step [stepControl]="personalFormGroup">
+        <form [formGroup]="personalFormGroup">
           
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input matInput type="email" placeholder="example@example.com" formControlName="email" required>
-                </mat-form-field>
-                
-                <div>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </form>
-            </mat-step>
+
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="John Doe " formControlName="name" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="example@example.com" formControlName="email" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone Number " formControlName="phoneNumber" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Date of birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateofBirth">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+
             
-            <!-- Step 2: Educational Details -->
-            <mat-step [stepControl]="educationFormGroup" >
-              <form [formGroup]="educationFormGroup">
-                <ng-template matStepLabel>Enter Educational Details</ng-template>
-          
-                <mat-form-field>
-                  <mat-label>Degree</mat-label>
-                  <input matInput placeholder="e.g., B.Sc. Computer Science" formControlName="degree" required>
-                </mat-form-field>
-          
-                <mat-form-field>
-                  <mat-label>University</mat-label>
-                  <input matInput placeholder="e.g., XYZ University" formControlName="university" required>
-                </mat-form-field>
-                
-                <div>
-                  <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </form>
-            </mat-step>
-          
-            <!-- Step 3: Create Username and Password -->
-            <mat-step [stepControl]="credentialsFormGroup" >
-              <form [formGroup]="credentialsFormGroup">
-                <ng-template matStepLabel>Create Username & Password</ng-template>
-          
-                <mat-form-field>
-                  <mat-label>Username</mat-label>
-                  <input matInput placeholder="Your username" formControlName="username" required>
-                </mat-form-field>
-          
-                <mat-form-field>
-                  <mat-label>Password</mat-label>
-                  <input matInput type="password" matTooltip="Password should have atleast 1 uppercase, lowercase, number and special charecter" placeholder="********" formControlName="password" required>
-                </mat-form-field>
-          
-                <mat-form-field>
-                  <mat-label>Confirm Password</mat-label>
-                  <input matInput type="password" placeholder="********" formControlName="confirmPassword" required>
-                </mat-form-field>
-                
-         
-                    <mat-label>{{msg}}</mat-label>
-                  
+              <mat-label>Gender</mat-label>
+              <mat-radio-group class="example-radio-group" formControlName="gender">
+                <mat-radio-button class="example-radio-button" value="Male">Male</mat-radio-button>
+                <mat-radio-button class="example-radio-button" value="Female">Female</mat-radio-button>
+              </mat-radio-group>
+            
 
-                <div>
-                  <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button (click)="submitForm()">Submit</button>
-                </div>
-              </form>
-            </mat-step>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- Step 2: Educational Details -->
+      <mat-step [stepControl]="educationFormGroup">
+        <form [formGroup]="educationFormGroup">
           
-          </mat-stepper>
+
+          <mat-form-field>
+            <mat-label>University</mat-label>
+            <input matInput placeholder="e.g., XYZ University" formControlName="currentInstitution" required>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Bio</mat-label>
+            <textarea matInput formControlName="bio"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Interests</mat-label>
+            <mat-select formControlName="interests" multiple>
+              <mat-option *ngFor="let interest of availableInterests" [value]="interest">
+                {{ interest }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput  formControlName="location" required>
+          </mat-form-field>
+
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- Step 3: Create Username and Password -->
+      <mat-step [stepControl]="credentialsFormGroup">
+        <form [formGroup]="credentialsFormGroup">
           
-    </div>
+
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Your username" formControlName="username" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password"
+              matTooltip="Password should have atleast 1 uppercase, lowercase, number and special charecter"
+              placeholder="********" formControlName="password" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="********" formControlName="confirmPassword" required>
+          </mat-form-field>
+
+
+          <mat-label>{{msg}}</mat-label>
+
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="submitForm()">Submit</button>
+          </div>
+        </form>
+      </mat-step>
+
+    </mat-stepper>
+
+  </div>
 </div>
 
 <app-footer></app-footer>

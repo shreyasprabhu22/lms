@@ -1,0 +1,36 @@
+<div class="dashboard">
+  <div class="row">
+    <div class="col-lg-4 col-md-12">
+      <div (click)="func1()" class="card">
+        <div class="card-body">
+          <h3>{{studentcount}}</h3>
+          <h5>Users</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div (click)="func2()" class="card">
+        <div class="card-body">
+          <h3>{{instructorcount}}</h3>
+          <h5>Instructor</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div (click)="func3()" class="card">
+        <div class="card-body">
+          <h3>{{coursecount}}</h3>
+          <h5>Courses</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="content-container">
+  <canvas *ngIf="dashboard_state === 'user'" id="dashboard1"></canvas>
+  <canvas *ngIf="dashboard_state === 'instructor'" id="dashboard2"></canvas>
+  <canvas *ngIf="dashboard_state === 'course'" id="dashboard3"></canvas>
+</div>
+
+</div>

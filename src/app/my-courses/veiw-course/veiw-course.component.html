@@ -1,0 +1,56 @@
+<app-nav [customColor]="'#e6e6e4'"></app-nav>
+
+<div class="container">
+    <div class="row header">
+      <div class="col-lg-5 col-md-12">
+        <img class="header-img" [src]="course_data.img">
+      </div>
+      <div class="col-lg-7 col-md-12 title">
+        <h2>{{course_data.name}}</h2>
+        <p>{{course_data.description}}</p>
+        <p> Category: {{course_data.category}}</p>
+        <p>Prerequisites: {{course_data.prerequisites}}</p>
+        <p>Level: {{course_data.level}}</p>
+        <p><i class="fas fa-clock"></i>{{course_data.duration}} weeks</p>
+      </div>
+    </div>
+  
+   
+    <div class="row details">
+      <div class="col-lg-8 col-md-12 outline">
+        <section class="course-content">
+          <h2>Course Content</h2>
+          <div *ngFor="let content of course_data.courseContent">
+            <h3>Week {{ content.week }}: {{ content.title }}</h3>
+            <p>{{ content.description }}</p>
+          </div>
+        </section>
+      </div>
+      <div class="col-lg-4 col-md-12 instructor">
+        <h4>Instructor</h4>
+        <img [src]="instructor.image">
+        <h5>{{instructor.name}}</h5>
+        <p>{{instructor.bio}}</p>
+      </div>
+    </div>
+  
+    <div class="row faq-rating">
+      <div class="col-md-12 reviews">
+        <div *ngFor="let review of course_data.reviews">
+          <div class="user">
+            <img height="50px" width="50px" src="assets/i3.jpeg">
+            <h5>{{review.reviewer}}</h5>
+          </div>
+          <div class="rating">
+            <span *ngFor="let star of [].constructor(5); let i = index"
+                  class="fa fa-star"
+                  [ngClass]="{'checked': i < review.rating}"></span>
+          </div>
+          <p>{{review.comment}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-footer></app-footer>
+  

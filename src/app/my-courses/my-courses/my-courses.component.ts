@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
-import { CoursesService } from 'src/app/services/courses.service';
+import { UserService } from 'src/app/services/user.service';
+import { CourseService } from 'src/app/services/course.service';
 import { Observable } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/interfaces/userInterface';
 
 @Component({
   selector: 'app-my-courses',
@@ -9,42 +11,47 @@ import { Observable } from 'rxjs';
   styleUrls: ['./my-courses.component.css']
 })
 export class MyCoursesComponent implements OnInit {
-  currentUser: any = "";
+  currentUser: any = {};
   coursesTakenByUser: any[] = [];
 
-  constructor(private userService: UsersService, private coursesService: CoursesService) {}
+  constructor(private userservice: UserService,private loginservice:LoginService, private courseservice: CourseService) {}
 
   ngOnInit(): void {
-    this.currentUser = this.userService.getCurrentUser();
-
-    if (this.currentUser) {
-      this.coursesService.getCourses().subscribe(courses => {
-        this.getCoursesForUser(courses, this.currentUser.CoursesTaken);
-      });
+    this.currentUser = this.loginservice.get_currentUser();
+    this.loaduserCourses()
+    };
+    
+    loaduserCourses(): void {
+      const userId = this.currentUser.userId; 
+    this.userservice.getCoursesTakenByUser(userId).subscribe(
+      (courses) => {
+        console.log(courses)
+        this.coursesTakenByUser = courses;
+      },
+      (error) => {
+        console.error('Error fetching courses:', error);
+      }
+    ); 
     }
-  }
+    
 
   
-  getCoursesForUser(courses: any[], courseIds: string[]) {
-    this.coursesTakenByUser = courseIds.map(courseId => {
-      return courses.find(course => course.CourseID === courseId);
-    }).filter(course => course !== undefined); 
-  }
+  
 
-  upgrade(){
-    if (this.currentUser) {
-      this.userService.updateUserSubscription('Enterprise').subscribe(
-        updatedUser => {
-          this.currentUser = updatedUser; 
-          alert("Your plan is upgraded to Enterprise plan");
-        },
-        error => {
-          console.error('Error upgrading subscription:', error);
-          alert("There was an error upgrading your subscription.");
-        }
-      );
-    } else {
-      alert("You need to be logged in to upgrade your subscription.");
+    upgrade(): void {
+      if (this.currentUser && this.currentUser.userId) {
+        const updatedUserData = {
+          subscription: 'Enterprise', 
+        };
+        this.userservice.updateData(this.currentUser.userId, updatedUserData).subscribe(
+          (updatedUser) => {
+            this.currentUser = updatedUser; 
+            alert("Subscription Updated")
+          },
+          (error) => {
+            console.error('Error upgrading user:', error);
+          }
+        );
+      }
     }
-  }
 }

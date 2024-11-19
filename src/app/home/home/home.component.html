@@ -8,11 +8,10 @@
           <div class="col-lg-4 col-md-6" style =" display: flex;
           justify-content: center;
           align-items: center;" *ngFor="let feature of features">
-            <app-feature-card 
-              [iconClass]="feature.iconClass"
-              [title]="feature.title"
-              [description]="feature.description">
-            </app-feature-card>
+            <app-feature-card
+            [iconClass]="feature.iconClass"
+            [title]="feature.title"
+            [description]="feature.description"></app-feature-card>
           </div>
         </div>
       </div>
@@ -37,11 +36,11 @@
 
 <app-carousel></app-carousel>
 
-<div class="container popular">
+<div class="container popular" id="popular_courses">
   <h5 style="text-align: center;">Our Popular Courses</h5>
   <div class="row">
       <div class="col-md-3 col-sm-6 "  *ngFor="let course of courses">
-          <app-course-card [course]="course"></app-course-card>
+          <app-course-card [course]="course" [instructor_id]="course.instructor_id"></app-course-card>
       </div>
   </div>
 </div>
@@ -56,8 +55,8 @@
   </div>
 </div>
 
-<div class="container blog-container">
-  <h5 style="text-align: center;">Upcoming Blogs and Webinars</h5>
+<div class="container blog-container" id="recent_blogs">
+  <h5 style="text-align: center;">Recent Blogs</h5>
   <div class="row blog-grid"> 
     <div class="col-lg-6 col-md-6 col-sm-12 mb-4 blogcard" *ngFor="let blog of blog_data">
       <app-blog-container [blogdata]="blog"></app-blog-container>

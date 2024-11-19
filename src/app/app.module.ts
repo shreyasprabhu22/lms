@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MaterialModule} from './sharedmaterial/sharedmaterial.module'
+import { MaterialModule } from './sharedmaterial/sharedmaterial.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';  
+import { HttpClientModule } from '@angular/common/http'; // Correct import
 
-import { UsersService } from './services/users.service';
-import { CoursesService } from './services/courses.service';
+import { courseReducer } from './all-courses/store/course.reducer';
+import { CourseEffects } from './all-courses/store/course.effects';
+
 import { EmailService } from './services/email.service';
+import { LoginService } from './services/login.service';
+import { UserService } from './services/user.service';
+import { CartService } from './services/cart.service';
+import { InstructorService } from './services/instructor.service';
+import { BlogService } from './services/blog.service';
+import { OtherService } from './services/other.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +43,24 @@ import { BlogComponentComponent } from './blogs/blog-component/blog-component.co
 import { MyCoursesComponent } from './my-courses/my-courses/my-courses.component';
 import { PricingPageComponent } from './pricing/pricing-page/pricing-page.component';
 import { CartComponent } from './all-courses/cart/cart.component';
+import { InstructorPageComponent } from './instructors/instructor-page/instructor-page.component';
+import { InstructorContainerComponent } from './instructors/instructor-container/instructor-container.component';
+import { AdminDashboardComponent } from './admin-veiw/admin-dashboard/admin-dashboard.component';
+import { CreateInstructorComponent } from './admin-veiw/create-instructor/create-instructor.component';
+import { CreateBlogComponent } from './admin-veiw/create-blog/create-blog.component';
+import { BlogManagementComponent } from './admin-veiw/blog-management/blog-management.component';
+import { UserManagementComponent } from './admin-veiw/user-management/user-management.component';
+import { InstructorManagementComponent } from './admin-veiw/instructor-management/instructor-management.component';
+import { InstructorDashboardComponent } from './instructor-view/instructor-dashboard/instructor-dashboard.component';
+import { AddCourseComponent } from './instructor-view/add-course/add-course.component';
+import { VeiwCourseComponent } from './my-courses/veiw-course/veiw-course.component';
+import { VeiwBlogComponent } from './blogs/veiw-blog/veiw-blog.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { NgChartsModule } from 'ng2-charts';
+
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { GraphsComponent } from './admin-veiw/graphs/graphs.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +89,21 @@ import { CartComponent } from './all-courses/cart/cart.component';
     BlogComponentComponent,
     MyCoursesComponent,
     PricingPageComponent,
-    CartComponent
+    CartComponent,
+    InstructorPageComponent,
+    InstructorContainerComponent,
+    AdminDashboardComponent,
+    CreateInstructorComponent,
+    CreateBlogComponent,
+    BlogManagementComponent,
+    UserManagementComponent,
+    InstructorManagementComponent,
+    InstructorDashboardComponent,
+    AddCourseComponent,
+    VeiwCourseComponent,
+    VeiwBlogComponent,
+    ForgotPasswordComponent,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,
@@ -72,11 +111,20 @@ import { CartComponent } from './all-courses/cart/cart.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,  
+    NgChartsModule,
+    StoreModule.forRoot({ course: courseReducer }),
+    EffectsModule.forRoot([CourseEffects]),
+   
   ],
-  providers: [UsersService,
-    CoursesService,
-    EmailService
+  providers: [
+    EmailService,
+    LoginService,
+    UserService,
+    CartService,
+    InstructorService,
+    BlogService,
+    OtherService
   ],
   bootstrap: [AppComponent]
 })

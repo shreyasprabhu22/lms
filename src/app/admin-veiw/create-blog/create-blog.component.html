@@ -1,0 +1,47 @@
+<app-nav></app-nav>
+
+<div id="page">
+  <div id="blog-container">
+    <form [formGroup]="blogFormGroup">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Blog Title" formControlName="title" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Content</mat-label>
+        <textarea matInput placeholder="Blog Content" formControlName="content" required></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input matInput placeholder="Author Name" formControlName="author" required>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" required>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Blog Description" formControlName="description" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input matInput placeholder="Category" formControlName="category" required>
+      </mat-form-field>
+
+
+      <div>
+        <button mat-button type="submit" (click)="submitForm()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,28 +1,32 @@
 <div class="card">
-    <img [src]="course.Image" alt="{{ course.CourseName }}">
+    <img [src]="course.img" alt="{{ course.name }}">
     <div class="card-body">
       <div style="display: flex;flex-direction: row;justify-content: space-between;">
-        <p class="card-text Category"><small>{{ course.Category }}</small></p>
-        <p class="card-text Category"><small>{{course.Price}}</small></p>
+        <p class="card-text Category"><small>{{ course.category }}</small></p>
+        <p class="card-text Category"><small>{{course.price}}</small></p>
       </div>
-      <p class="card-title">{{ course.CourseName }}</p>
-      <p class="card-text"><small>{{ course.Description }}</small></p>
+      <p class="card-title">{{ course.name }}</p>
+      <p class="card-text"><small>{{ course.description }}</small></p>
   
       <div class="rating">
         <span *ngFor="let star of [].constructor(5); let i = index" 
               class="fa fa-star" 
-              [ngClass]="{'checked': i < course.Rating}"></span>
+              [ngClass]="{'checked': i < get_rating(course)}"></span>
       </div>
       
       <div class="instructor-info d-flex align-items-center">
-        <img [src]="course.IImage" alt="{{ course.InstructorName }}" class="instructor-img">
-        <p class="instructor-name">{{ course.Instructor }}</p>
+        <img [src]="instructor.image" alt="{{ instructor.image }}" class="instructor-img">
+        <p class="instructor-name">{{ instructor.name }}</p>
       </div>
     </div>
     <button *ngIf="isAllCoursesPage" 
         (click)="onStartCourse(course)" 
         class="btn btn-primary">
-  {{ isEnterpriseUser || course.Price === 'Free' || course.Price === 0 ? 'Enroll Now' : 'Add to Cart' }}
+  {{ isEnterpriseUser || course.price === 'Free' || course.price === 0 ? 'Enroll Now' : 'Add to Cart' }}
+</button>
+<button *ngIf="isMyCoursesPage" 
+        (click)="onviewCourse(course)" 
+        class="btn btn-primary"> View Course
 </button>
 
   </div>

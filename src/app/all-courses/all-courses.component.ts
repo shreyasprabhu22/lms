@@ -1,69 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CoursesService } from '../services/courses.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CourseState } from './store/course.reducer';
+import * as CourseActions from './store/course.action';
+import { selectFilteredCourses, selectAllCourses, selectSearchTerm, selectSelectedCategory } from './store/course.selectors';
+import { map } from 'rxjs/operators';
+
+interface Course {
+  id: number;
+  name: string;
+  description: string;
+  category: string;
+  instructor_id: number;
+}
 
 @Component({
   selector: 'app-all-courses',
   templateUrl: './all-courses.component.html',
-  styleUrls: ['./all-courses.component.css'],
+  styleUrls: ['./all-courses.component.css']
 })
 export class AllCoursesComponent implements OnInit {
-  selectedInstructor: string = '';
+  filteredCourses$!: Observable<Course[] | null>;
+  allCourses$!: Observable<Course[]>;
+  categories: string[] = [];
   selectedCategory: string = '';
-  selectedRating: any = null;
-  filteredCourses: any[] = [];
-  courses: any[] = [];
+  searchTerm: string = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private coursesService: CoursesService
-  ) {}
+  constructor(private store: Store<CourseState>) {}
 
   ngOnInit(): void {
-    // Load courses from the CoursesService
-    this.coursesService.loadCourses().subscribe((courses) => {
-      this.courses = courses;
-      this.filteredCourses = []; // Initialize with all courses
-    });
+    this.store.dispatch(CourseActions.loadCourses());
+    this.filteredCourses$ = new Observable<Course[] | null>((observer) => observer.next(null)); 
+    this.allCourses$ = this.store.select(selectAllCourses);
 
-  }
-
-  // Get distinct list of instructors
-  getInstructors() {
-    return Array.from(new Set(this.courses.map((course) => course.Instructor)));
-  }
-
-  // Get distinct list of categories
-  getCategories() {
-    return Array.from(new Set(this.courses.map((course) => course.Category)));
-  }
-
-  // Filter courses based on selected criteria
-  filterCourses() {
-    const ratingNumber = this.selectedRating ? parseInt(this.selectedRating, 10) : null;
-    this.filteredCourses = this.courses.filter(course => {
-      const matchesInstructor = this.selectedInstructor ? course.Instructor === this.selectedInstructor : true;
-      const matchesCategory = this.selectedCategory ? course.Category === this.selectedCategory : true;
-      const matchesRating = ratingNumber !== null ? course.Rating === ratingNumber : true;
-      return matchesInstructor && matchesCategory && matchesRating;
+    this.allCourses$.subscribe(courses => {
+      this.categories = Array.from(new Set(courses.map(course => course.category)));
     });
   }
 
-  // Get courses by selected category (filtered courses)
-  getCoursesByCategory(category: string) {
-    return this.filteredCourses.filter((course) => course.Category === category);
+  searchCourses(): void {
+    this.store.dispatch(CourseActions.setSearchTerm({ searchTerm: this.searchTerm }));
+    this.store.dispatch(CourseActions.filterCourses());
+    this.filteredCourses$ = this.store.select(selectFilteredCourses);
   }
 
-  // Get all courses by selected category (from all courses)
-  getAllCoursesByCategory(category: string) {
-    return this.courses.filter((course) => course.Category === category);
+  filterCourses(): void {
+    this.store.dispatch(CourseActions.setCategoryFilter({ category: this.selectedCategory }));
+    this.store.dispatch(CourseActions.filterCourses());
+    this.filteredCourses$ = this.store.select(selectFilteredCourses);
   }
 
-  // Clear all the selected filters
-  clearFilters() {
-    this.selectedInstructor = '';
-    this.selectedCategory = '';
-    this.selectedRating = null;
-    this.filteredCourses = [...this.courses]; // Reset to all courses
+  clearFilters(): void {
+    this.store.dispatch(CourseActions.setSearchTerm({ searchTerm: '' }));
+    this.store.dispatch(CourseActions.setCategoryFilter({ category: '' }));
+    this.store.dispatch(CourseActions.filterCourses());
+    this.filteredCourses$ = new Observable<Course[] | null>((observer) => observer.next(null));
+  }
+
+  getCategories(): string[] {
+    return this.categories;
+  }
+
+  getAllCoursesByCategory(category: string): Observable<Course[]> {
+    return this.allCourses$.pipe(
+      map((courses: Course[]) => courses.filter(course => course.category === category))
+    );
   }
 }

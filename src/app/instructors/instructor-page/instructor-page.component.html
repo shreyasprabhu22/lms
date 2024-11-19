@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+<h3 style="text-align: center; margin-top: 40px;">Meet our Heroes</h3>
+    <div class="row">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4 " *ngFor="let instructor of instructors">
+                    <app-instructor-container [instructor]="instructor"></app-instructor-container>
+                </div>
+          
+        </div>
+        
+    </div>
+
+    <app-footer></app-footer>

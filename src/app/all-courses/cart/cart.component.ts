@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsersService } from 'src/app/services/users.service';
-import { CoursesService } from 'src/app/services/courses.service';
+import { UserService } from 'src/app/services/user.service';
+import { CourseService } from 'src/app/services/course.service';
+import { CartService } from 'src/app/services/cart.service';
+import { LoginService } from 'src/app/services/login.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -13,9 +16,11 @@ export class CartComponent implements OnInit {
   totalCost: number = 0;
 
   constructor(
-    private userService: UsersService, 
+    private userservice: UserService, 
     private router: Router,
-    private coursesService: CoursesService
+    private courseService: CourseService,
+    private cartservice: CartService,
+    private loginservice: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -23,54 +28,78 @@ export class CartComponent implements OnInit {
   }
 
   loadCart() {
-    const currentUser = this.userService.getCurrentUser();
-    if (currentUser) {
-      this.cart = this.userService.getCart();
-      this.calculateTotalCost();
-    } else {
-      this.router.navigate(['/login']);
-    }
+    this.cartservice.getData(this.loginservice.get_currentUser().userId).subscribe(
+      (cartWithCourses) => {
+        this.cart = cartWithCourses;
+        this.calculateTotalCost();
+      },
+      (error) => {
+        console.error('Error fetching cart:', error);
+      }
+    );
   }
 
   calculateTotalCost() {
     this.totalCost = this.cart.reduce((total, course) => {
-      return total + (typeof course.Price === 'number' ? course.Price : 0);
+      return total + (typeof course.courseDetails?.price === 'number' ? course.courseDetails?.price : 0);
     }, 0);
   }
 
   removeCourse(courseId: string) {
-    this.userService.removeCourseFromCart(courseId);
-    this.loadCart();
+    this.cartservice.removeCourseFromCart(this.loginservice.get_currentUser().userId, courseId).subscribe(
+      (response) => {
+        this.loadCart();
+      },
+      (error) => {
+        console.error('Error removing course from cart:', error);
+      }
+    );
   }
 
   buyCourses() {
-    const currentUser = this.userService.getCurrentUser();
-    
+    const currentUser = this.loginservice.get_currentUser();
+  
     if (!currentUser) {
       this.router.navigate(['/login']);
       return;
     }
   
-    const courseIdsToAdd = this.cart.map(course => course.CourseID);
+    const coursesPurchased = Array.isArray(currentUser.coursesPurchased) ? currentUser.coursesPurchased : [];
+    const courseIdsToAdd = this.cart.map(course => course.courseDetails?.course_id);
   
-    this.coursesService.getCoursesByIds(courseIdsToAdd).subscribe(courses => {
-      if (currentUser) {
-        this.userService.updateUserCourses(courses).subscribe(updatedUser => {
-          this.userService.updateUserSubscription('Buy Courses').subscribe(updatedUserWithSubscription => {
-            alert(`You have successfully purchased courses `);
-          }, error => {
-            console.error('Error updating user subscription:', error);
-            alert('Failed to update your subscription.');
-          });
-        }, error => {
-          console.error('Error updating user courses:', error);
-          alert('Failed to update your courses.');
-        });
+    this.courseService.getData().subscribe(courses => {
+      const coursesToAdd = courses.filter(course => courseIdsToAdd.includes(course.course_id));
+  
+      if (coursesToAdd.length === 0) {
+        alert('No valid courses found for purchase.');
+        return;
       }
   
-      this.userService.clearCart();
-      this.loadCart();
+      this.userservice.updateCourse(currentUser.userId, {
+        coursesPurchased: [...coursesPurchased, ...coursesToAdd.map(course => course.course_id)],
+        subscription: 'Buy Courses'
+      }).subscribe(updatedUser => {
+        this.cartservice.clearCart(currentUser.userId).subscribe(
+          () => {
+            this.cart = [];
+            this.totalCost = 0;
+            alert('Purchase successful and cart cleared.');
+            this.router.navigate(['/profile']);
+          },
+          (error: HttpErrorResponse) => {
+            console.error('Error clearing cart:', error);
+            alert('Failed to clear the cart after purchase.');
+          }
+        );
+      }, error => {
+        console.error('Error updating user data:', error);
+        alert('Failed to update user data after purchase.');
+      });
+    }, error => {
+      console.error('Error fetching courses:', error);
+      alert('Failed to fetch courses for purchase.');
     });
   }
+  
   
 }

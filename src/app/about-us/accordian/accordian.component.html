@@ -1,50 +1,16 @@
 <div class="container">
   <h5>Frequently Asked Questions - Know more about our LMS</h5>
   <mat-accordion>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          What is a Learning Management System (LMS)?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>A Learning Management System (LMS) is a software application for administering, documenting, tracking, reporting, and delivering educational courses or training programs.</p>
-    </mat-expansion-panel>
-  
-    <mat-expansion-panel>
-      <mat-expansion-panel-header> 
-        <mat-panel-title>
-          How do I create an account?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>To create an account, visit our registration page, fill in the required details, and follow the prompts to set up your profile.</p>
-    </mat-expansion-panel>
-  
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Can I access courses on my mobile device?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>Yes, our LMS is designed to be mobile-friendly, allowing you to access courses and materials from your smartphone or tablet.</p>
-    </mat-expansion-panel>
-  
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          What should I do if I forget my password?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>If you forget your password, click on the 'Forgot Password?' link on the login page, and follow the instructions to reset it.</p>
-    </mat-expansion-panel>
-  
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          How can I contact support?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>You can contact our support team via the 'Contact Us' section on our website or by sending an email to support@example.com.</p>
-    </mat-expansion-panel>
+    <div *ngFor=" let data of faq">
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           <p>{{data.question}}</p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{data.answer}}</p>
+      </mat-expansion-panel>
+    </div>
   </mat-accordion>
   
 </div>

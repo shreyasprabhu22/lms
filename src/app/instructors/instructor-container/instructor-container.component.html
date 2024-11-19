@@ -1,0 +1,22 @@
+
+<div class="card">
+    <div class="image">
+          <img [src]="instructor.image" alt="instructor"> 
+    </div>
+    <div class="card-body">
+        <p class="name">{{instructor.name}}</p>
+        <p class="bio">{{instructor.bio}}</p>
+        <p class="specialization">specialization: {{instructor.specialization}}</p>
+        <p class ="email">{{instructor.email}}</p>
+        <div class="rating">
+            <span *ngFor="let star of [].constructor(5); let i = index" 
+                  class="fa fa-star" 
+                  [ngClass]="{'checked': i < instructor.reviewIns}"></span>
+          </div>
+        <div class="social">
+            <a [href]="instructor.socialLinks[0]"><i class="fa-brands fa-linkedin"></i></a>
+            <a [href]="instructor.socialLinks[1]"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+        
+    </div>
+</div>
