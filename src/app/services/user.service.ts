@@ -54,7 +54,7 @@ updateData(userId: string, updateData: any): Observable<User> {
 }
 updateCourse(userId: string, updateData: any): Observable<User> {
   console.log("here")
-  return this.http.put<User>(`${this.apiUrl}/api/users/${userId}`, updateData).pipe(
+  return this.http.put<User>(`${this.apiUrl}/api/users/updatecourses/${userId}`, updateData).pipe(
         tap(updatedUser => {
           console.log(updatedUser)
           this.loginService.setCurrentUser(updatedUser); 

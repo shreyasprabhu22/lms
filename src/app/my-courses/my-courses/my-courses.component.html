@@ -15,7 +15,7 @@
         <div *ngIf="currentUser.subscription === 'Buy Courses' || currentUser.subscription === 'Free'">
           <p>You have {{currentUser.subscription}} plan</p>
           <p>Click here to upgrade to Enterprise plan</p>
-          <button class="enterprise" (click)="upgrade()" class="btn btn-upgrade">Upgrade</button>
+          <button class="enterprise" (click)="upgrade()">Upgrade</button>
         </div>
       </div>
     </div>

@@ -3,8 +3,7 @@
 <div id="page">
     <div id="signin-container">
       <mat-stepper #stepper>
-  
-        <!-- Step 1: Instructor Details -->
+
         <mat-step [stepControl]="instructorFormGroup">
           <form [formGroup]="instructorFormGroup">
             <mat-form-field>
@@ -59,7 +58,7 @@
           </form>
         </mat-step>
   
-        <!-- Step 2: Username and Password -->
+       
         <mat-step [stepControl]="credentialsFormGroup">
           <form [formGroup]="credentialsFormGroup">
             <mat-form-field>

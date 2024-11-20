@@ -1,4 +1,4 @@
-// course.actions.ts
+
 import { createAction, props } from '@ngrx/store';
 
 export const loadCourses = createAction('[Course] Load Courses');

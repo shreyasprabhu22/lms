@@ -74,7 +74,7 @@ export class CourseCardComponent {
     const coursesPurchased = Array.isArray(currentUser.coursesPurchased) ? currentUser.coursesPurchased : [];
   
     if (course.price === 'Free' || course.price === 0) {
-      this.userservice.updateData(currentUser.userId, { 
+      this.userservice.updateCourse(currentUser.userId, { 
         coursesPurchased: [...coursesPurchased, course.course_id] 
       }).subscribe(updatedUser => {
         alert('You have successfully enrolled in the free course!');

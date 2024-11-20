@@ -1,4 +1,4 @@
-/* Basic layout styles */
+
 .sidenav-container {
     height: 100vh;
   }
@@ -32,8 +32,7 @@
   button {
     margin-right: 10px;
   }
-  
-  /* Sidebar styles */
+
   .sidenav-header {
     text-align: center;
     background-color: #3f51b5;
@@ -50,8 +49,9 @@
     background-color: #3f51b5;
     color: white;
   }
-  
-  /* Responsive design */
+.sidenav-container{
+  height:auto
+}
   @media (max-width: 768px) {
     .sidenav {
       width: 200px;

@@ -1,4 +1,3 @@
-// course.reducer.ts
 import { createReducer, on } from '@ngrx/store';
 import * as CourseActions from './course.action';
 
@@ -34,14 +33,14 @@ export const courseReducer = createReducer(
   on(CourseActions.filterCourses, (state) => {
     let filtered = state.courses;
 
-    // Filter by search term
+    
     if (state.searchTerm) {
       filtered = filtered.filter(course =>
         course.name.toLowerCase().includes(state.searchTerm.toLowerCase())
       );
     }
 
-    // Filter by selected category
+   
     if (state.selectedCategory) {
       filtered = filtered.filter(course =>
         course.category === state.selectedCategory

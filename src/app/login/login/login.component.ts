@@ -41,17 +41,23 @@ export class LoginComponent {
             this.router.navigate(['/mycourses'])
             }
         },
-        (error) => {
+        (error) => { 
           alert('Login failed');
         }
-      );
+      ); 
     } else if (this.selectedOption === 'instructor') {
       this.loginservice.loginInstructor(this.userForm.value.username, this.userForm.value.password).subscribe(
         (response) => {
           this.loginservice.setCurrentUser(response.user);
           this.loginservice.setRole('Instructor');
           alert('Login successful');
-          this.router.navigate(['/instructor-dashboard'])
+          if(this.loginservice.get_currentUser().isFirstLogin===true){
+            this.router.navigate(['/reset-password'])
+            alert("Reset your password after first login")
+          }
+          else{
+            this.router.navigate(['/instructor-dashboard'])
+          }
         },
         (error) => {
           alert('Incorrect username or password');

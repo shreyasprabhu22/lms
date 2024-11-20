@@ -120,7 +120,9 @@ export class CreateInstructorComponent implements OnInit {
         location: this.instructorFormGroup.value.location,
         username: this.credentialsFormGroup.value.username,
         password: this.credentialsFormGroup.value.password,
-        role:'Instructor'
+        role:'Instructor',
+        isFirstLogin:true,
+        ownRegistered:false
       };
 
       console.log("here",this.isEditMode)

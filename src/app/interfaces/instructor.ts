@@ -14,5 +14,7 @@ export interface instructor{
   location: string,
   username: string,
   password: string,
-  role:String
+  role:String,
+  isFirstLogin:boolean,
+  ownRegistered:boolean
 }

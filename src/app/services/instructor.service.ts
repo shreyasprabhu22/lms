@@ -26,7 +26,8 @@ export class InstructorService {
   deleteData(id: string): Observable<instructor> {
     return this.http.delete<instructor>(`${this.apiUrl}/api/instructors/${id}`);
   }
-  updateData(instructorId: string, instructorData: instructor): Observable<any> {
+  updateData(instructorId: string, instructorData:any): Observable<any> {
+    console.log("inside update api")
     console.log(`${this.apiUrl}/api/instructors/${instructorId}`)
     return this.http.put(`${this.apiUrl}/api/instructors/${instructorId}`, instructorData);
   }

@@ -15,10 +15,13 @@
    text-align: center;
    }
   }
-  
+   
 .enterprise{
    color:white;
    background-color: #20B486;
+   border-radius: 5px;
+   border: none;
+   padding: 10px;
 }
 
   

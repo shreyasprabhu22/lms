@@ -5,8 +5,9 @@ import { User } from 'src/app/interfaces/userInterface';
 import { UserService } from 'src/app/services/user.service';
 import { InstructorService } from 'src/app/services/instructor.service';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
-@Component({
+@Component({ 
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
@@ -18,6 +19,7 @@ export class ForgotPasswordComponent {
   userExists: boolean=false;
   user: User | null = null;
   selectedOption: string = 'user'; 
+  reset:boolean=false
   
 
   constructor(
@@ -25,7 +27,8 @@ export class ForgotPasswordComponent {
     private userService: UserService,
     private router: Router,
     private instructorservice:InstructorService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private loginservice:LoginService
   ) {
     
     this.emailForm = this.fb.group({
@@ -53,6 +56,11 @@ export class ForgotPasswordComponent {
       },
       { validator: this.passwordMatchValidator }
     );
+    const currentRoute = this.router.url;
+    if(currentRoute.includes('/reset-password')){
+          this.reset=true,
+          this.step=2
+    }
   }
 
   passwordMatchValidator(form: FormGroup): null | object {
@@ -108,7 +116,28 @@ export class ForgotPasswordComponent {
     return valid ? null : { passwordStrength: true };
   }
   onSubmitPassword(): void {
-    
+    if(this.reset){
+      
+        const data={
+          password:this.passwordForm.value.password,
+          isFirstLogin:false
+      }
+      console.log(this.loginservice.get_currentUser().instructorId)
+      this.instructorservice.updateData(this.loginservice.get_currentUser().instructorId, data).subscribe(
+        (response) => {
+          alert("password updated")
+          this.router.navigate(['/instructor-dashboard'])
+        },
+        (error) => {
+          console.log(error)
+          alert(error)
+        }  
+      );
+
+      
+      }
+
+    else{
       if(this.selectedOption==='user'){
         this.userService.updatePassword(this.emailForm.value.email,this.passwordForm.value.password).subscribe(
           (response) => {
@@ -134,6 +163,6 @@ export class ForgotPasswordComponent {
         }
       );
       }
-    
+    }
   }
 }

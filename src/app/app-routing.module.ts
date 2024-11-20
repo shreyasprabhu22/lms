@@ -74,6 +74,10 @@ const routes: Routes = [{path:'', redirectTo: 'home', pathMatch: 'full'},
     path:'forgot-password',
     component : ForgotPasswordComponent
   },
+  {
+    path:'reset-password',
+    component : ForgotPasswordComponent
+  },
   { path: 'update-blog/:id', component: CreateBlogComponent ,canActivate: [AuthGuard]},
 
   { path: 'update-course/:id', component: AddCourseComponent, canActivate:[InstructorViewGuard]}
