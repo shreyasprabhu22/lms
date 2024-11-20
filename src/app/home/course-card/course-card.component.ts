@@ -88,6 +88,9 @@ export class CourseCardComponent {
         alert('Course has been added to your cart.');
       }, error => {
         console.error('Error adding course to cart:', error);
+        if(error===''){
+
+        }
         alert('Failed to add course to cart.');
       });
     }

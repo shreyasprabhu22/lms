@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment';
 })
 export class LoginService {
   
-  private userStatusSubject = new BehaviorSubject<{ loggedIn: boolean; role: string | null }>({ loggedIn: false, role: null });
-  userStatusChange = this.userStatusSubject.asObservable();
   apiUrl = environment.apiUrl;
   currentUser: any = null; 
   role: string = ''; 
@@ -25,7 +23,6 @@ export class LoginService {
     if (storedUser && storedRole) {
       this.currentUser = JSON.parse(storedUser);
       this.role = storedRole;
-      this.emitUserStatusChange(); 
     }
   }
 
@@ -66,11 +63,8 @@ export class LoginService {
     this.role = '';
     localStorage.removeItem('currentUser'); 
     localStorage.removeItem('role'); 
-    this.emitUserStatusChange(); 
   }
 
-  private emitUserStatusChange() {
-    this.userStatusSubject.next({ loggedIn: this.currentUser !== null, role: this.role });
-  }
+  
 
 }
