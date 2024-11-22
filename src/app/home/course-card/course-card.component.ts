@@ -19,6 +19,7 @@ export class CourseCardComponent {
   isEnterpriseUser: boolean = false;
   isMyCoursesPage:boolean =false;
   instructor:any={}
+  isratingAvailable=false;
 
   constructor(private loginservice:LoginService,
      private cartservice:CartService ,
@@ -31,6 +32,13 @@ export class CourseCardComponent {
     this.checkIfMyCoursesPage()
     this.checkSubscriptionStatus();
     this.setInstructor()
+    this.checkRating()
+  }
+   
+  checkRating(){
+    if(this.course.reviews.length>0){
+         this.isratingAvailable=true
+    }
   }
 
   setInstructor() {
@@ -88,9 +96,6 @@ export class CourseCardComponent {
         alert('Course has been added to your cart.');
       }, error => {
         console.error('Error adding course to cart:', error);
-        if(error===''){
-
-        }
         alert('Failed to add course to cart.');
       });
     }

@@ -27,7 +27,11 @@ p, h4{
     margin-top: 80px;
 }
 
-
+@media (max-width: 768px) {
+    .pricing-container {
+        padding-left: 40px;
+    }
+}
 
 
 

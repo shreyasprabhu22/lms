@@ -30,6 +30,11 @@ export class CourseService {
   getDataByInstructor(id:string):Observable<Course[]> {
     return this.http.get<Course[]>(`${this.apiUrl}/api/courses/instructor/${id}`)
   }
+
+  getReviews(id:string):Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/api/courses/reviews/${id}`)
+  }
+
   getCoursesFromDifferentCategory():Observable<Course[]> {
     return this.http.get<Course[]>(`${this.apiUrl}/api/courses/courses-by-category`)
   }
@@ -37,5 +42,10 @@ export class CourseService {
   updateCourse(courseId: string, courseData: Course): Observable<any> {
     return this.http.put(`${this.apiUrl}/api/courses/${courseId}`, courseData);
   }
+
+  updateReviews(courseId: string, courseData:any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/api/courses/reviews/${courseId}`, courseData);
+  }
+
 }
  

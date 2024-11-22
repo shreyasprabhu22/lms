@@ -8,7 +8,7 @@
       <p class="card-title">{{ course.name }}</p>
       <p class="card-text"><small>{{ course.description }}</small></p>
   
-      <div class="rating">
+      <div *ngIf="isratingAvailable" class="rating">
         <span *ngFor="let star of [].constructor(5); let i = index" 
               class="fa fa-star" 
               [ngClass]="{'checked': i < get_rating(course)}"></span>

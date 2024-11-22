@@ -26,31 +26,48 @@
           </div>
         </section>
       </div>
-      <div class="col-lg-4 col-md-12 instructor">
-        <h4>Instructor</h4>
-        <img [src]="instructor.image">
-        <h5>{{instructor.name}}</h5>
-        <p>{{instructor.bio}}</p>
-      </div>
-    </div>
-  
-    <div class="row faq-rating">
-      <div class="col-md-12 reviews">
-        <div *ngFor="let review of course_data.reviews">
-          <div class="user">
-            <img height="50px" width="50px" src="assets/i3.jpeg">
-            <h5>{{review.reviewer}}</h5>
-          </div>
-          <div class="rating">
-            <span *ngFor="let star of [].constructor(5); let i = index"
-                  class="fa fa-star"
-                  [ngClass]="{'checked': i < review.rating}"></span>
-          </div>
-          <p>{{review.comment}}</p>
+    
+      <div class="col-lg-4 col-md-12 instructor-details">
+        <div class="instructor">
+          <h4>Instructor</h4>
+          <img [src]="instructor.image">
+          <h5>{{instructor.name}}</h5>
+          <p>{{instructor.bio}}</p>
         </div>
+    
+        <div *ngIf="!isratingGiven" class="instructor_rating">
+          <h5>Please give us your Rating</h5>
+          <form [formGroup]="ratingForm" >
+            <mat-form-field>
+              <mat-label>Rating</mat-label>
+              <mat-select formControlName="rating">
+                <mat-option *ngFor="let number of [1, 2, 3, 4, 5]" [value]="number">{{number}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Message</mat-label>
+              <textarea matInput formControlName="message" required></textarea>
+            </mat-form-field>
+            <button mat-button (click)="submit()">Submit</button>
+          </form>
+        </div>
+    
       </div>
     </div>
-  </div>
+    
+    <div *ngIf="isratingAvailable" style="margin-top: 50px;" class="reviews">
+      <div *ngFor="let review of reviews">
+        <div class="user">
+          <img height="50px" width="50px" src="assets/i3.jpeg">
+          <h5>{{review.reviewerName}}</h5>
+        </div>
+        <div class="rating">
+          <span *ngFor="let star of [].constructor(5); let i = index"
+                class="fa fa-star"
+                [ngClass]="{'checked': i < review.rating}"></span>
+        </div>
+        <p>{{review.comment}}</p>
+      </div>
+    </div>
   
   <app-footer></app-footer>
-  

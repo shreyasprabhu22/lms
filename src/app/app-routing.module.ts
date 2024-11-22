@@ -21,6 +21,7 @@ import { UserGuard } from './auth/user.guard';
 import { VeiwBlogComponent } from './blogs/veiw-blog/veiw-blog.component';
 import { VeiwCourseComponent } from './my-courses/veiw-course/veiw-course.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [{path:'', redirectTo: 'home', pathMatch: 'full'},
   {path:'home', component: HomeComponent},
   {path:'contact', component:ContactUsComponent},
@@ -80,7 +81,8 @@ const routes: Routes = [{path:'', redirectTo: 'home', pathMatch: 'full'},
   },
   { path: 'update-blog/:id', component: CreateBlogComponent ,canActivate: [AuthGuard]},
 
-  { path: 'update-course/:id', component: AddCourseComponent, canActivate:[InstructorViewGuard]}
+  { path: 'update-course/:id', component: AddCourseComponent, canActivate:[InstructorViewGuard]},
+  {path:'**', component:NotFoundComponent}
 ];
 
 @NgModule({

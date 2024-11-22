@@ -57,10 +57,12 @@ import { VeiwCourseComponent } from './my-courses/veiw-course/veiw-course.compon
 import { VeiwBlogComponent } from './blogs/veiw-blog/veiw-blog.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { GraphsComponent } from './admin-veiw/graphs/graphs.component';
+
 
 @NgModule({
   declarations: [
@@ -103,7 +105,8 @@ import { GraphsComponent } from './admin-veiw/graphs/graphs.component';
     VeiwCourseComponent,
     VeiwBlogComponent,
     ForgotPasswordComponent,
-    GraphsComponent
+    GraphsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+.container {
+    text-align: left;
+    max-width: 600px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+h1 {
+    font-size: 4rem;
+    color: #20B486;
+}
+p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+.btn {
+    text-decoration: none;
+    background-color: #20B486;
+    color: white;
+}
