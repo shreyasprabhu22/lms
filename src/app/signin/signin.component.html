@@ -4,7 +4,7 @@
   <div id="signin-container">
     <mat-stepper #stepper>
 
-      <!-- Step 1: Personal Details -->
+    
       <mat-step [stepControl]="personalFormGroup">
         <form [formGroup]="personalFormGroup">
           
@@ -26,7 +26,7 @@
 
           <mat-form-field>
             <mat-label>Date of birth</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="dateofBirth">
+            <input matInput [matDatepicker]="picker" formControlName="dateofBirth" readonly="true">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -47,7 +47,7 @@
         </form>
       </mat-step>
 
-      <!-- Step 2: Educational Details -->
+      
       <mat-step [stepControl]="educationFormGroup">
         <form [formGroup]="educationFormGroup">
           
@@ -84,7 +84,7 @@
         </form>
       </mat-step>
 
-      <!-- Step 3: Create Username and Password -->
+      
       <mat-step [stepControl]="credentialsFormGroup">
         <form [formGroup]="credentialsFormGroup">
           

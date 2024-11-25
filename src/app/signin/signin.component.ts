@@ -33,7 +33,7 @@ export class SigninComponent {
 
   ngOnInit(): void {
     this.personalFormGroup = this._formBuilder.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, this.nameValidator]],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, ]],
       dateofBirth: ['', [Validators.required]],
@@ -67,6 +67,13 @@ export class SigninComponent {
 
     return valid ? null : { passwordStrength: true };
   }
+
+  nameValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    const hasNumbers = /\d/.test(value); 
+    return hasNumbers ? { 'noNumbers': true } : null;
+  }
+
 
   passwordMatchValidator(form: FormGroup): { [key: string]: boolean } | null {
     if (form.get('password')?.value !== form.get('confirmPassword')?.value) {

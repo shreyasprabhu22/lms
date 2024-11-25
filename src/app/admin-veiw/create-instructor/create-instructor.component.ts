@@ -25,7 +25,7 @@ export class CreateInstructorComponent implements OnInit {
 
   ngOnInit(): void {
     this.instructorFormGroup = this._formBuilder.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, this.nameValidator]],
       email: ['', [Validators.required, Validators.email]],
       bio: ['', [Validators.required]],
       reviewIns: ['', [Validators.required, Validators.min(1), Validators.max(5)]],
@@ -94,7 +94,11 @@ export class CreateInstructorComponent implements OnInit {
     return valid ? null : { passwordStrength: true };
   }
 
-
+  nameValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    const hasNumbers = /\d/.test(value); 
+    return hasNumbers ? { 'noNumbers': true } : null;
+  }
   passwordMatchValidator(form: FormGroup): { [key: string]: boolean } | null {
     if (form.get('password')?.value !== form.get('confirmPassword')?.value) {
       return { mismatch: true };

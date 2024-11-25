@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { EmailService } from 'src/app/services/email.service';
-
+import { AbstractControl, ValidatorFn,FormControl  } from '@angular/forms';
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent {
-
+  
   constructor(private emailService: EmailService) {}
 
     onSubmit(contactForm:any) {
@@ -37,4 +37,6 @@ export class ContactFormComponent {
       );
     alert("form submitted")
  }
+ 
+ 
 }

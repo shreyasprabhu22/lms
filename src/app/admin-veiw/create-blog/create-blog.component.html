@@ -21,7 +21,7 @@
 
       <mat-form-field>
         <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="date" required>
+        <input matInput [matDatepicker]="picker" formControlName="date" required readonly="true">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

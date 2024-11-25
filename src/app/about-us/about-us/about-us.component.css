@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -21,6 +22,7 @@
 .about-us-text p {
   color: #333;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .about-us-image img {

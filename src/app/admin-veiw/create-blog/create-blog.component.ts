@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators ,AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { BlogService } from 'src/app/services/blog.service';
 import { blog } from 'src/app/interfaces/blog';
@@ -27,7 +27,7 @@ export class CreateBlogComponent {
     this.blogFormGroup = this._formBuilder.group({
       title: ['', [Validators.required]],
       content: ['', [Validators.required]],
-      author: ['', [Validators.required]],
+      author: ['', [Validators.required, this.nameValidator]],
       date: ['', [Validators.required]],
       description: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -65,6 +65,13 @@ export class CreateBlogComponent {
       });
     }
   }
+
+  nameValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    const hasNumbers = /\d/.test(value); 
+    return hasNumbers ? { 'noNumbers': true } : null;
+  }
+
   submitForm(): void {
     if (this.blogFormGroup.valid) {
       const newBlog: blog = {

@@ -37,3 +37,6 @@ i{
 svg{
     border: none;
 }
+footer a:hover{
+    text-decoration: underline;
+}
