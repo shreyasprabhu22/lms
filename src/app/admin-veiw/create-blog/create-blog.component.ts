@@ -15,6 +15,7 @@ export class CreateBlogComponent {
   msg = '';
   isEditMode: boolean = false;
   BlogId: string = '';
+  submitted=false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -73,7 +74,9 @@ export class CreateBlogComponent {
   }
 
   submitForm(): void {
+    
     if (this.blogFormGroup.valid) {
+      this.submitted=true
       const newBlog: blog = {
         blog_id: this.isEditMode ? this.BlogId : '',  
         title: this.blogFormGroup.value.title,

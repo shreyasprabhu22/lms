@@ -6,16 +6,28 @@
       <mat-form-field>
         <mat-label>Title</mat-label>
         <input matInput placeholder="Blog Title" formControlName="title" required>
+        <mat-error
+  [hidden]="blogFormGroup.get('title')?.valid || (!blogFormGroup.get('title')?.touched && !submitted)">
+  <small>Title  is required.</small>
+</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Content</mat-label>
         <textarea matInput placeholder="Blog Content" formControlName="content" required></textarea>
+        <mat-error
+  [hidden]="blogFormGroup.get('content')?.valid || (!blogFormGroup.get('content')?.touched && !submitted)">
+  <small>Username  is required.</small>
+</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Author</mat-label>
         <input matInput placeholder="Author Name" formControlName="author" required>
+        <mat-error
+  [hidden]="blogFormGroup.get('author')?.valid || (!blogFormGroup.get('author')?.touched && !submitted)">
+  <small>Username  is required.</small>
+</mat-error>
       </mat-form-field>
 
 
@@ -29,16 +41,24 @@
       <mat-form-field>
         <mat-label>Description</mat-label>
         <input matInput placeholder="Blog Description" formControlName="description" required>
+        <mat-error
+  [hidden]="blogFormGroup.get('description')?.valid || (!blogFormGroup.get('description')?.touched && !submitted)">
+  <small>Username  is required.</small>
+</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Category</mat-label>
         <input matInput placeholder="Category" formControlName="category" required>
+        <mat-error
+  [hidden]="blogFormGroup.get('category')?.valid || (!blogFormGroup.get('category')?.touched && !submitted)">
+  <small>Username  is required.</small>
+</mat-error>
       </mat-form-field>
 
 
       <div>
-        <button mat-button type="submit" (click)="submitForm()">Submit</button>
+        <button mat-button type="submit" (click)="submitForm()" >Submit</button>
       </div>
     </form>
   </div>

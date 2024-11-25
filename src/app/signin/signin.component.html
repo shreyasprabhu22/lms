@@ -12,16 +12,32 @@
           <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput placeholder="John Doe " formControlName="name" required>
+            <mat-error
+  [hidden]="personalFormGroup.get('name')?.valid || (!personalFormGroup.get('name')?.touched && !submitted)">
+  <small>Valid Name is required.</small>
+</mat-error>
+
           </mat-form-field>
+          
 
           <mat-form-field>
             <mat-label>Email</mat-label>
             <input matInput type="email" placeholder="example@example.com" formControlName="email" required>
+            <mat-error
+  [hidden]="personalFormGroup.get('email')?.valid || (!personalFormGroup.get('email')?.touched && !submitted)">
+  <small>Valid Email is required.</small>
+</mat-error>
+
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Phone Number</mat-label>
             <input matInput placeholder="Phone Number " formControlName="phoneNumber" required>
+            <mat-error
+  [hidden]="personalFormGroup.get('phoneNumber')?.valid || (!personalFormGroup.get('phoneNumber')?.touched && !submitted)">
+  <small>Valid Phone Number is required.</small>
+</mat-error>
+
           </mat-form-field>
 
           <mat-form-field>
@@ -38,6 +54,12 @@
               <mat-radio-group class="example-radio-group" formControlName="gender">
                 <mat-radio-button class="example-radio-button" value="Male">Male</mat-radio-button>
                 <mat-radio-button class="example-radio-button" value="Female">Female</mat-radio-button>
+                <mat-error
+  [hidden]="personalFormGroup.get('gender')?.valid || (!personalFormGroup.get('gender')?.touched && !submitted)">
+  <small>Valid Name is required.</small>
+</mat-error>
+
+              
               </mat-radio-group>
             
 
@@ -55,11 +77,20 @@
           <mat-form-field>
             <mat-label>University</mat-label>
             <input matInput placeholder="e.g., XYZ University" formControlName="currentInstitution" required>
+            <mat-error
+  [hidden]="educationFormGroup.get('currentInstitution')?.valid || (!educationFormGroup.get('currentInstitution')?.touched && !submitted)">
+  <small>Current Institution is required.</small>
+</mat-error>
+
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Bio</mat-label>
             <textarea matInput formControlName="bio"></textarea>
+            <mat-error
+  [hidden]="educationFormGroup.get('bio')?.valid || (!educationFormGroup.get('bio')?.touched && !submitted)">
+  <small>User's Bio is required.</small>
+</mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -74,6 +105,10 @@
           <mat-form-field>
             <mat-label>Location</mat-label>
             <input matInput  formControlName="location" required>
+            <mat-error
+  [hidden]="educationFormGroup.get('location')?.valid || (!educationFormGroup.get('location')?.touched && !submitted)">
+  <small>Location is required.</small>
+</mat-error>
           </mat-form-field>
 
 
@@ -92,18 +127,30 @@
           <mat-form-field>
             <mat-label>Username</mat-label>
             <input matInput placeholder="Your username" formControlName="username" required>
+            <mat-error
+  [hidden]="credentialsFormGroup.get('username')?.valid || (!credentialsFormGroup.get('username')?.touched && !submitted)">
+  <small>Username  is required.</small>
+</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Password</mat-label>
             <input matInput type="password"
-              matTooltip="Password should have atleast 1 uppercase, lowercase, number and special charecter"
+              matTooltip="Password should have atleast six charecters with 1 uppercase, lowercase, number and special charecter"
               placeholder="********" formControlName="password" required>
+              <mat-error
+  [hidden]="credentialsFormGroup.get('password')?.valid || (!credentialsFormGroup.get('password')?.touched && !submitted)">
+  <small>Valid password is required.</small>
+</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Confirm Password</mat-label>
             <input matInput type="password" placeholder="********" formControlName="confirmPassword" required>
+            <mat-error
+            [hidden]="credentialsFormGroup.get('password')?.valid || (!credentialsFormGroup.get('password')?.touched && !submitted)">
+            <small>Valid password is required</small>
+            </mat-error>
           </mat-form-field>
 
 

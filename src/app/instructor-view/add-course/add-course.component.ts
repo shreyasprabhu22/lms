@@ -16,6 +16,7 @@ export class AddCourseComponent implements OnInit {
   msg = '';
   isEditMode: boolean = false;
   courseId: string = '';
+  submitted=false;
 
   constructor(private _formBuilder: FormBuilder,
               private router: Router,
@@ -94,8 +95,17 @@ export class AddCourseComponent implements OnInit {
     (this.detailsFormGroup.get('courseContent') as FormArray).push(this.createWeek());
   }
 
+  removeWeek(): void {
+    const courseContent = this.detailsFormGroup.get('courseContent') as FormArray;
+    if (courseContent.length > 1) {
+      courseContent.removeAt(courseContent.length - 1);
+    }
+  }
+
+  
   submitForm() {
     if (this.courseFormGroup.valid && this.detailsFormGroup.valid) {
+      this.submitted=true;
       const courseContent = this.detailsFormGroup.value.courseContent;
 
       const newCourse: Course = {

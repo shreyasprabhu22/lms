@@ -10,6 +10,7 @@ import { User } from '../interfaces/userInterface';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
+  submitted=false;
   personalFormGroup!: FormGroup;
   educationFormGroup!: FormGroup;
   credentialsFormGroup!: FormGroup;
@@ -35,7 +36,7 @@ export class SigninComponent {
     this.personalFormGroup = this._formBuilder.group({
       name: ['', [Validators.required, this.nameValidator]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, ]],
+      phoneNumber: ['', [Validators.required ]],
       dateofBirth: ['', [Validators.required]],
       gender :['', [Validators.required]]
     });
@@ -84,7 +85,7 @@ export class SigninComponent {
 
   submitForm(): void {
     if (this.personalFormGroup.valid && this.educationFormGroup.valid && this.credentialsFormGroup.valid) {
-
+      this.submitted=true
       const newUser: User = {
         userId: '',
         name: this.personalFormGroup.value.name,

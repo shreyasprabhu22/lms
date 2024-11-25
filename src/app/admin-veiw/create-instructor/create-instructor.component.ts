@@ -15,7 +15,7 @@ export class CreateInstructorComponent implements OnInit {
   msg = '';
   isEditMode: boolean = false;
   InstructorId: string = '';
-
+  submitted=false
   constructor(
     private _formBuilder: FormBuilder,
     private router: Router,
@@ -108,6 +108,7 @@ export class CreateInstructorComponent implements OnInit {
 
   submitForm(): void {
     if (this.instructorFormGroup.valid && this.credentialsFormGroup.valid) {
+      this.submitted=true
       const newInstructor: instructor = {
         instructorId: '', 
         name: this.instructorFormGroup.value.name,

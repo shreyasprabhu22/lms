@@ -3,27 +3,43 @@
 <div id="page">
   <div id="signin-container">
     <mat-stepper #stepper>
-      
+
       <mat-step [stepControl]="courseFormGroup">
         <form [formGroup]="courseFormGroup">
           <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" placeholder="Name" required>
+            <mat-error
+              [hidden]="courseFormGroup.get('name')?.valid || (!courseFormGroup.get('name')?.touched && !submitted)">
+              <small>Valid Name is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Category</mat-label>
             <input matInput type="text" formControlName="category" required>
+            <mat-error
+              [hidden]="courseFormGroup.get('category')?.valid || (!courseFormGroup.get('category')?.touched && !submitted)">
+              <small>Category is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Duration</mat-label>
             <input matInput type="number" placeholder="Number of weeks" formControlName="duration" required>
+            <mat-error
+              [hidden]="courseFormGroup.get('duration')?.valid || (!courseFormGroup.get('duration')?.touched && !submitted)">
+              <small>Number of weeks is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description" placeholder="Description of course" required></textarea>
+            <mat-error
+              [hidden]="courseFormGroup.get('description')?.valid || (!courseFormGroup.get('description')?.touched && !submitted)">
+              <small>Description is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <div>
@@ -32,24 +48,36 @@
         </form>
       </mat-step>
 
-     
+
       <mat-step [stepControl]="detailsFormGroup">
         <form [formGroup]="detailsFormGroup">
 
-          
+
           <mat-form-field>
             <mat-label>Prerequisite</mat-label>
             <input matInput formControlName="prerequisite" placeholder="Prerequisite" required>
+            <mat-error
+              [hidden]="detailsFormGroup.get('prerequisite')?.valid || (!detailsFormGroup.get('prerequisite')?.touched && !submitted)">
+              <small>Prerequisite is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Level</mat-label>
             <input matInput type="text" formControlName="level" required>
+            <mat-error
+              [hidden]="detailsFormGroup.get('level')?.valid || (!detailsFormGroup.get('level')?.touched && !submitted)">
+              <small>Level of course is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Price</mat-label>
             <input matInput type="number" formControlName="price" required>
+            <mat-error
+              [hidden]="detailsFormGroup.get('price')?.valid || (!detailsFormGroup.get('price')?.touched && !submitted)">
+              <small>Price is required.</small>
+            </mat-error>
           </mat-form-field>
 
           <div class="week_details" formArrayName="courseContent">
@@ -68,9 +96,10 @@
                 <mat-label>Description</mat-label>
                 <textarea matInput formControlName="description" required></textarea>
               </mat-form-field>
+              
             </div>
           </div>
-
+          <button mat-button (click)="removeWeek()">Remove Week</button>
           <button mat-button (click)="addWeek()">+ Add Week</button>
 
           <mat-label>{{msg}}</mat-label>
