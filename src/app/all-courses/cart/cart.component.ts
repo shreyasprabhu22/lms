@@ -83,8 +83,8 @@ export class CartComponent implements OnInit {
           () => {
             this.cart = [];
             this.totalCost = 0;
-            alert('Purchase successful and cart cleared.');
-            this.router.navigate(['/profile']);
+            alert('Purchase successful');
+            this.router.navigate(['/mycourses']);
           },
           (error: HttpErrorResponse) => {
             console.error('Error clearing cart:', error);
