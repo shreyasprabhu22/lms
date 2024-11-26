@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg"
     [ngStyle]="{'background': customColor || 'linear-gradient(to bottom, #ccefe6, white)'}">
     <div class=" nav-container container-fluid">
-        <a class="navbar-brand" href="#home">
+        <a class="navbar-brand">
             <img src="assets/logo.png" width="100px" height="100px" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -20,7 +20,7 @@
                 </li>
 
                 <li *ngIf="isLoggedIn && role=='Instructor'"  class="nav-item">
-                    <a   class="nav-link " routerLink="/instructor" routerLinkActive="active">Dashboard</a>
+                    <a   class="nav-link " routerLink="/instructor-dashboard" routerLinkActive="active">Dashboard</a>
                 </li>
 
                 <li *ngIf="isLoggedIn && role=='User'"  class="nav-item">

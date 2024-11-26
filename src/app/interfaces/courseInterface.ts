@@ -21,7 +21,7 @@ export interface Course {
         reviewer:  string,
         rating: number,
         comment:  string
-      }
+       }
     ],
     level: string,
     price:Number

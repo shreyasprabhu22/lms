@@ -7,24 +7,29 @@ import { AbstractControl, ValidatorFn,FormControl  } from '@angular/forms';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent {
-  
+   
+  nameInvalid: boolean = false;
+
   constructor(private emailService: EmailService) {}
 
-    onSubmit(contactForm:any) {
+  nameValidation(value: string): boolean {
+    const hasNumbers = /\d/.test(value); 
+    this.nameInvalid = hasNumbers;  
+    return hasNumbers;
+  }
 
-      
-      const name=contactForm.value.name;
+  onSubmit(contactForm: any) {
+    if (contactForm.valid) {
+      const name = contactForm.value.name;
       const email = contactForm.value.email;
-      const  message= "You have received a new message from a user"+ contactForm.value.message
+      const message = "You have received a new message from a user: " + contactForm.value.message;
 
-      
       const templateParams = {
-        from_name: contactForm.value.name,
+        from_name: name,
         from_email: email,
         message: message
       };
 
-      
       this.emailService.sendEmail(templateParams).then(
         (response) => {
           console.log('Email sent successfully:', response);
@@ -35,8 +40,10 @@ export class ContactFormComponent {
           alert('Oops! Something went wrong, please try again.');
         }
       );
-    alert("form submitted")
- }
+    } else {
+      alert('Please fill out the form correctly!');
+    }
+  }
  
  
 }

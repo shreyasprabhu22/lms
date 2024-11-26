@@ -52,13 +52,14 @@ export class GraphsComponent implements OnInit, OnDestroy {
   
     this.userservice.getData().subscribe((st) => {
       this.student = st;
+      console.log(this.student)
       this.studentcount = this.student.length;
       this.countSubscriptions();
     });
   
     this.instructorservice.getData().subscribe((inst) => {
       this.instructorAll = inst;
-      console.log(this.instructorAll)
+      
       this.instructorcount = this.instructorAll.length;
       this.countReviews();  
       this.createChart();
@@ -88,6 +89,7 @@ export class GraphsComponent implements OnInit, OnDestroy {
         this.subscriptionCounts.Enterprise++;
       }
     });
+    
   }
 
   countReviews() {

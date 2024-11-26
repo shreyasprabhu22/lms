@@ -4,11 +4,13 @@
       
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Name</mat-label>
-        <input matInput  name="name" #name="ngModel" ngModel required>
+        <input matInput name="name" #name="ngModel" ngModel required (ngModelChange)=" nameValidation(name.value)">
       </mat-form-field>
-      <mat-error [hidden]="name.valid || (name.pristine && !contactForm.submitted)">
-        <small>Name is required .</small>
+  
+      <mat-error *ngIf="nameInvalid" >
+        <small>Name should not contain numbers.</small>
       </mat-error>
+      
       
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Email </mat-label>
