@@ -5,6 +5,7 @@ import { CourseState } from './store/course.reducer';
 import * as CourseActions from './store/course.action';
 import { selectFilteredCourses, selectAllCourses, selectSearchTerm, selectSelectedCategory } from './store/course.selectors';
 import { map } from 'rxjs/operators';
+import { LoginService } from '../services/login.service';
 
 interface Course {
   id: number;
@@ -25,8 +26,15 @@ export class AllCoursesComponent implements OnInit {
   categories: string[] = [];
   selectedCategory: string = '';
   searchTerm: string = '';
-
-  constructor(private store: Store<CourseState>) {}
+  user:any;
+  role:string=""
+  constructor(private store: Store<CourseState>,
+    private loginservice:LoginService
+  ) {
+    this.role=this.loginservice.get_role();
+    this.user= this.loginservice.get_currentUser()
+   
+  }
 
   ngOnInit(): void {
     this.store.dispatch(CourseActions.loadCourses());
@@ -36,6 +44,7 @@ export class AllCoursesComponent implements OnInit {
     this.allCourses$.subscribe(courses => {
       this.categories = Array.from(new Set(courses.map(course => course.category)));
     });
+    
   }
 
   searchCourses(): void {

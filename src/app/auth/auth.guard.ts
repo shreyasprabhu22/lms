@@ -17,8 +17,6 @@ export class AuthGuard implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     const isLoggedIn = this.loginservice.get_currentUser() !== null;
   const isAdmin = this.loginservice.get_role() === 'Admin';
-  console.log(isLoggedIn)
-  console.log(isAdmin)
   if (isLoggedIn && isAdmin) {
     return true;
   } else {

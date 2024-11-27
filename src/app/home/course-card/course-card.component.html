@@ -3,7 +3,8 @@
     <div class="card-body">
       <div style="display: flex;flex-direction: row;justify-content: space-between;">
         <p class="card-text Category"><small>{{ course.category }}</small></p>
-        <p class="card-text Category"><small>{{course.price}}</small></p>
+        <p *ngIf="course.price != 0" class="card-text Category"><small>{{course.price|currency}}</small></p>
+        <p *ngIf="course.price ===0" class="card-text Category"><small>Free</small></p>
       </div>
       <p class="card-title">{{ course.name }}</p>
       <p class="card-text"><small>{{ course.description }}</small></p>
@@ -21,12 +22,12 @@
     </div>
     <button *ngIf="isAllCoursesPage" 
         (click)="onStartCourse(course)" 
-        class="btn btn-primary">
+        class="btn ">
   {{ isEnterpriseUser || course.price === 'Free' || course.price === 0 ? 'Enroll Now' : 'Add to Cart' }}
 </button>
 <button *ngIf="isMyCoursesPage" 
         (click)="onviewCourse(course)" 
-        class="btn btn-primary"> View Course
+        class="btn "> View Course
 </button>
 
   </div>

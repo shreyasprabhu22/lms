@@ -15,13 +15,16 @@ export class CartComponent implements OnInit {
   cart: any[] = [];
   totalCost: number = 0;
 
+
   constructor(
     private userservice: UserService, 
     private router: Router,
     private courseService: CourseService,
     private cartservice: CartService,
     private loginservice: LoginService
-  ) {}
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.loadCart();

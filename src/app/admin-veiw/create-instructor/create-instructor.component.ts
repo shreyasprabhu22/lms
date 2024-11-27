@@ -107,7 +107,7 @@ export class CreateInstructorComponent implements OnInit {
   }
 
   submitForm(): void {
-    if (this.instructorFormGroup.valid && this.credentialsFormGroup.valid) {
+   
       this.submitted=true
       const newInstructor: instructor = {
         instructorId: '', 
@@ -130,11 +130,31 @@ export class CreateInstructorComponent implements OnInit {
         ownRegistered:false
       };
 
+      const updateInstructor = {
+        instructorId: '', 
+        name: this.instructorFormGroup.value.name,
+        email: this.instructorFormGroup.value.email,
+        bio: this.instructorFormGroup.value.bio,
+        reviewIns: this.instructorFormGroup.value.reviewIns,
+        image: 'assets/instructor.jpeg',
+        experience:this.instructorFormGroup.value.experience,
+        specialization: this.instructorFormGroup.value.specialization,
+        socialLinks: {
+          linkedin: this.instructorFormGroup.value.linkedin,
+          twitter: this.instructorFormGroup.value.twitter
+        },
+        location: this.instructorFormGroup.value.location,
+        username: this.credentialsFormGroup.value.username,
+        role:'Instructor',
+        isFirstLogin:true,
+        ownRegistered:false
+      };
+
       console.log("here",this.isEditMode)
       console.log("here",this.InstructorId)
       if (this.isEditMode) {
         console.log("inside update")
-        this.instructorService.updateData(this.InstructorId, newInstructor).subscribe({
+        this.instructorService.updateData(this.InstructorId, updateInstructor).subscribe({
           next: () => {
             alert('Instructor updated successfully!');
             this.router.navigate(['/admin-dashboard']);
@@ -145,6 +165,7 @@ export class CreateInstructorComponent implements OnInit {
           }
         });
       } else {
+        if(this.credentialsFormGroup.valid && this.instructorFormGroup.valid){
         this.instructorService.postData(newInstructor).subscribe({
           next: (response) => {
             alert('Instructor created successfully!');
@@ -157,5 +178,5 @@ export class CreateInstructorComponent implements OnInit {
         });
       }
     }
+    }
   }
-}  

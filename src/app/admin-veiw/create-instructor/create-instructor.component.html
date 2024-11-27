@@ -107,7 +107,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field *ngIf="!isEditMode">
             <mat-label>Password</mat-label>
             <input matInput type="password"
               matTooltip="Password should include  six charecters with at least one uppercase, lowercase, number, and special character"
@@ -118,7 +118,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field *ngIf="!isEditMode">
             <mat-label>Confirm Password</mat-label>
             <input matInput type="password" formControlName="confirmPassword" required>
             <mat-error

@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 
-<div style="text-align: right; padding: 30px;">
+<div *ngIf=" role==='User' && user" style="text-align: right; padding: 30px;">
   <p routerLink="/cart">Your Cart <i class="fas fa-shopping-cart"></i></p>
 </div>
 
